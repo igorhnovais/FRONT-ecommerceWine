@@ -6,7 +6,7 @@ import { ThreeDots } from "react-loader-spinner";
 import {AuthContext} from "../Components/auth";
 import {Nav, SectionImg, DivInput, DivA, Button} from "./styled";
 
-export default function SignIn(){
+export default function SignInPage(){
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
