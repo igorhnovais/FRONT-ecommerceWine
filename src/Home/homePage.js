@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
-import useProducts from "../Hooks/Api/useProducts"
+import useProducts from "../Hooks/Api/useProducts";
+import useToken from "../Hooks/useToken";
 import ProductsList from "./productList";
 
 export default function HomePage(){
 
     const {products} = useProducts();
+    const token = useToken();
+    console.log(token)
 
 
     return (
