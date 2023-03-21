@@ -25,7 +25,7 @@ export default function useAsync(handler, immediate = true){
         if(immediate){
             act();
         }
-    }, [])
+    }, []);
 
     return {
         data,

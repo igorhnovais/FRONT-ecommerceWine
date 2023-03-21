@@ -5,7 +5,7 @@ export default function ProductsList({item}){
     return (
         <>
             <WineDiv>
-                <Link to={`/wine/${item.id}`}>
+                <Link to={`/product/${item.id}`}>
                     <Img src={item.image} alt={`vinho ${item.name}`}/>
                     <H2> {item.name}</H2>
                     <H6> R$: {item.value} </H6>
