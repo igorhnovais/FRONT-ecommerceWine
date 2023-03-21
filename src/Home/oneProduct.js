@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import useOneProduct from "../Hooks/Api/useOneProduct";
+import Loading from "../Components/loading";
 
 export default function OneProduct(){
 
@@ -12,26 +13,35 @@ export default function OneProduct(){
     return (
         <>
             <Nav>
-                <SectionImg>
-                    <img src={oneProduct?.image} alt={oneProduct?.name}/>
-                </SectionImg>
+                {(oneProduct)
+                    ?
+                    (<>
+                        <SectionImg>
+                        <img src={oneProduct?.image} alt={oneProduct?.name}/>
+                        </SectionImg>
 
-                <SectionName>
-                    <H1> {oneProduct?.name}</H1>
-                    <p>{oneProduct?.type}</p>
-                    <p>{oneProduct?.alcohol}</p>
-                </SectionName>
+                        <SectionName>
+                            <H1> {oneProduct?.name}</H1>
+                            <p>{oneProduct?.type}</p>
+                            <p>{oneProduct?.alcohol}</p>
+                        </SectionName>
 
-                <SectionDescription>  
-                    <h6> Comentario do Sommelier:</h6>                 
-                    <p>{oneProduct?.description}</p>
-                </SectionDescription>
+                        <SectionDescription>  
+                            <h6> Comentario do Sommelier:</h6>                 
+                            <p>{oneProduct?.description}</p>
+                        </SectionDescription>
 
-                <SectionValue>                   
-                    <p> R$ {oneProduct?.value}</p>
-                </SectionValue>
+                        <SectionValue>                   
+                            <p> R$ {oneProduct?.value}</p>
+                        </SectionValue>
 
-                <Button> Adicionar ao carrinho </Button>
+                        <Button> Adicionar ao carrinho </Button>
+                    </>)
+                    :
+                    <Loading/>
+
+                    }
+                
             </Nav>
             <h1>oi</h1>
         </>
