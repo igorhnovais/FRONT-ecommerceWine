@@ -3,6 +3,7 @@ import styled from "styled-components";
 import useProducts from "../Hooks/Api/useProducts";
 import useToken from "../Hooks/useToken";
 import ProductsList from "./productList";
+import Loading from "../Components/loading";
 
 export default function HomePage(){
 
@@ -21,7 +22,11 @@ export default function HomePage(){
 
             <Nav>
                 <ProductsSection>
-                   {products?.data?.map((item, i) => <ProductsList item={item} key={i}/>)}                  
+                   {(products) 
+                    ?
+                    (products.data.map((item, i) => <ProductsList item={item} key={i}/>)) 
+                    :
+                    <Loading/>}               
                 </ProductsSection>     
             </Nav>
 
