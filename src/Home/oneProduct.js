@@ -17,22 +17,22 @@ export default function OneProduct(){
                     ?
                     (<>
                         <SectionImg>
-                        <img src={oneProduct?.image} alt={oneProduct?.name}/>
+                        <img src={oneProduct.image} alt={oneProduct.name}/>
                         </SectionImg>
 
                         <SectionName>
-                            <H1> {oneProduct?.name}</H1>
-                            <p>{oneProduct?.type}</p>
-                            <p>{oneProduct?.alcohol}</p>
+                            <H1> {oneProduct.name}</H1>
+                            <p>{oneProduct.type}</p>
+                            <p>{oneProduct.alcohol}</p>
                         </SectionName>
 
                         <SectionDescription>  
                             <h6> Comentario do Sommelier:</h6>                 
-                            <p>{oneProduct?.description}</p>
+                            <p>{oneProduct.description}</p>
                         </SectionDescription>
 
                         <SectionValue>                   
-                            <p> R$ {oneProduct?.value}</p>
+                            <p> R$ {(oneProduct.value / 100).toFixed(2).replace(".",",")}</p>
                         </SectionValue>
 
                         <Button> Adicionar ao carrinho </Button>

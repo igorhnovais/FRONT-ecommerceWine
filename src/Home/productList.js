@@ -8,7 +8,7 @@ export default function ProductsList({item}){
                 <Link to={`/product/${item.id}`}>
                     <Img src={item.image} alt={`vinho ${item.name}`}/>
                     <H2> {item.name}</H2>
-                    <H6> R$: {item.value} </H6>
+                    <H6> R$: {(item.value / 100).toFixed(2).replace(".",",")} </H6>
                 </Link>
             </WineDiv>
         </>
