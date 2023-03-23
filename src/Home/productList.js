@@ -3,39 +3,24 @@ import { Link } from "react-router-dom";
 import useAddProduct from "../Hooks/Api/useAddProduct";
 import { toast } from 'react-toastify';
 
-import { useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import useToken from "../Hooks/useToken";
 
 
 export default function ProductsList({item}){
-    // const {getAddProduct} = useAddProduct();
-
-    // async function AddCart(){
-    //     try{
-    //         await getAddProduct({id:item.id});
-    //         alert("oi")
-    //         //toast("item inserido")
-    //     } catch(err){
-    //         alert("tchau")
-    //         //toast('primeiro se cadastre no nosso site')
-    //     }  
-    // }
-    const token = useToken()
+    const {getAddProduct} = useAddProduct();
     const navigate = useNavigate()
 
-    function AddCart(){
-        const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/cart`, {id:item.id}, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        promise.catch( err => {alert("faça login!"); navigate("/sign-in"); window.location.reload()})
+    async function AddCart(){
+        
+        const response = await getAddProduct({id:item.id});
+           
+        if(!response){
+            alert("faça login!"); 
+            navigate("/sign-in"); 
+            window.location.reload()
+        } 
     }
         
-    
-
     return (
         <>
             <Nav>
