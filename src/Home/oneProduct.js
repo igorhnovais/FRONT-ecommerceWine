@@ -58,7 +58,7 @@ const Nav = styled.nav`
 
 const SectionImg = styled.section`
     background-color: white;
-    width: 100%;
+    max-width: 400px;
     display: flex;
     justify-content: center;
     border-radius: 5px;

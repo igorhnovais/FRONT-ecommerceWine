@@ -1,16 +1,33 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+import { RiLogoutBoxRFill } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 import useProducts from "../Hooks/Api/useProducts";
 import useName from "../Hooks/useName";
 import ProductsList from "./productList";
 import Loading from "../Components/loading";
+import useToken from "../Hooks/useToken";
 
 export default function HomePage(){
 
     const {products} = useProducts();
     const name = useName();
-    const oi = false
+    const token = useToken();
+    const navigate = useNavigate();
+
+    function viewCart(){
+        if(!token){
+            alert("faça login")
+            navigate("/sign-in")
+            window.location.reload();
+            return;
+        }
+
+        navigate("/cart")
+
+    }
 
     return (
         <>
@@ -22,20 +39,18 @@ export default function HomePage(){
 
             <Nav>
                 <ProductsSection>
-                   {(oi) 
+                   {(products) 
                     ?
                     (products.data.map((item, i) => <ProductsList item={item} key={i}/>)) 
                     :
                     <Loading/>}               
-                </ProductsSection>     
+                </ProductsSection>    
             </Nav>
 
             <Footer>
-                <Link to={"/cart"}>
-                    <ion-icon name="cart"></ion-icon>
-                </Link>
+                <FaShoppingCart onClick={viewCart}/>
                 <h3> Olá, {name}</h3>
-                <ion-icon name="log-in-outline"></ion-icon>
+                <RiLogoutBoxRFill/>
             </Footer>
 
         </>
@@ -68,7 +83,6 @@ const ProductsSection = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
     //background-image: url("https://i.pinimg.com/originals/90/43/a7/9043a730ef9d90e2b2e6c92265939457.jpg");
     background-image: url("https://lovebeers.com.br/wp-content/uploads/2017/05/fundo-madeira.jpg");
     //background-image: url("https://img.freepik.com/fotos-premium/fundo-de-madeira-velho-grunge-texturizado-escuro_7182-370.jpg");
@@ -88,6 +102,12 @@ const Footer = styled.footer`
     width: 100%;
     height: 80px;
     & ion-icon{
+        font-size: 45px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    & svg {
         font-size: 45px;
         color: white;
         border-radius: 10px;

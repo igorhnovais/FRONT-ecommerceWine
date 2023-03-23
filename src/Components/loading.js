@@ -5,7 +5,7 @@ export default function Loading(){
     return (
         <>
             <Div>
-              <MagnifyingGlass width={"400"} height={"400"} color={"#322938"} glassColor={"#00ffff20"} />
+              <MagnifyingGlass width={"400"} height={"400"} color={"#322938"} glassColor={"#00ffff10"} />
             </Div>
             
         </>
