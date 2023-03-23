@@ -15,7 +15,7 @@ export default function App(){
                 <GlobalStyle/>
                 <AuthProvider>
                     <Routes>
-                        <Route path={"/"} element={<Navigate replace to="/sign-in"/>}/>
+                        <Route path={"/"} element={<Navigate replace to="/products"/>}/>
                         <Route path={"/sign-in"} element={<SignInPage/>}/>
                         <Route path={"/sign-up"} element={<SignUpPage/>}/>
                         <Route path={"/products"} element={<HomePage/>}/>
