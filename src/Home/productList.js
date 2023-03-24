@@ -1,24 +1,34 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import useAddProduct from "../Hooks/Api/useAddProduct";
+import useAddProductCart from "../Hooks/Api/useAddProductCart";
 import { toast } from 'react-toastify';
 
 import { useNavigate } from "react-router-dom";
 
 
 export default function ProductsList({item}){
-    const {getAddProduct} = useAddProduct();
+    const {getAddProduct, addProductError} = useAddProductCart();
     const navigate = useNavigate()
 
     async function AddCart(){
         
         const response = await getAddProduct({id:item.id});
-           
+        
         if(!response){
             alert("faça login!"); 
             navigate("/sign-in"); 
             window.location.reload()
         } 
+
+        // try{
+        //     await getAddProduct({id:item.id});
+        // } catch {
+        //     console.log("oioioi", addProductError)
+        //     alert("faça login!"); 
+        //     // navigate("/sign-in"); 
+        //     // window.location.reload()
+        // }
+        
     }
         
     return (
