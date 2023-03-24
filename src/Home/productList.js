@@ -19,16 +19,7 @@ export default function ProductsList({item}){
             navigate("/sign-in"); 
             window.location.reload()
         } 
-
-        // try{
-        //     await getAddProduct({id:item.id});
-        // } catch {
-        //     console.log("oioioi", addProductError)
-        //     alert("faça login!"); 
-        //     // navigate("/sign-in"); 
-        //     // window.location.reload()
-        // }
-        
+    
     }
         
     return (
