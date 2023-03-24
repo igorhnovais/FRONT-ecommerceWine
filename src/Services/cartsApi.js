@@ -18,3 +18,13 @@ export async function findManyProductsCart(token){
     })
     return response;
 }
+
+export async function deleteProductCart(id, token){
+
+    const response = await api.delete(`/cart/${id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return response.data
+}
