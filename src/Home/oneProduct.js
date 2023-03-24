@@ -3,12 +3,28 @@ import styled from "styled-components";
 
 import useOneProduct from "../Hooks/Api/useOneProduct";
 import Loading from "../Components/loading";
+import useAddProductCart from "../Hooks/Api/useAddProductCart";
 
 export default function OneProduct(){
 
     const {productId} = useParams();
         
     const {oneProduct} = useOneProduct(productId);
+
+    const {getAddProduct, addProductError} = useAddProductCart();
+    const navigate = useNavigate()
+
+    async function AddCart(id){
+        
+        const response = await getAddProduct({id});
+        
+        if(!response){
+            alert("faça login!"); 
+            navigate("/sign-in"); 
+            window.location.reload()
+        } 
+    
+    }
 
     return (
         <>
@@ -35,7 +51,7 @@ export default function OneProduct(){
                             <p> R$ {(oneProduct.value / 100).toFixed(2).replace(".",",")}</p>
                         </SectionValue>
 
-                        <Button> Adicionar ao carrinho </Button>
+                        <Button onClick={() => AddCart(oneProduct.id)}> Adicionar ao carrinho </Button>
                     </>)
                     :
                     <Loading/>
