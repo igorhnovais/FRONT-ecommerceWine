@@ -1,6 +1,21 @@
 import styled from "styled-components";
+import {RiDeleteBin6Fill}from "react-icons/ri";
+import useDeleteProductCart from "../Hooks/Api/useDeleteProductCart";
 
-export default function CartList({item}){
+export default function CartList({item, getProductsCart}){
+    const {getDeleteProduct} = useDeleteProductCart();
+
+
+    async function deleteProduct(id){
+        
+       const response = await getDeleteProduct(id);
+       await getProductsCart(); // pra recarregar a pagina;
+
+       if (!response){
+        alert("não conseguimos deletar")
+       } 
+    }
+
     return (
         <>
             <Nav>
@@ -12,7 +27,9 @@ export default function CartList({item}){
                     </PriceDiv>
                     
                 </WineDiv>
-                
+                <DeleteDiv onClick={() => deleteProduct(item.id)}>
+                    <RiDeleteBin6Fill/>
+                </DeleteDiv>
             </Nav>
         </>
     )
@@ -34,7 +51,7 @@ const WineDiv = styled.div`
     width: 90vw;
     border: 2px solid #322938;
     border-radius: 5px;
-    margin: 10px 10px 0 10px;
+    margin: 10px 0 0 10px;
     flex-shrink: 0;
     & a{
         text-decoration: none;
@@ -68,4 +85,19 @@ const H6 = styled.h6`
 
 const PriceDiv = styled.div`
     min-width: 100px;
+`
+
+const DeleteDiv = styled.div`
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 142px;
+    margin-top:10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    & svg{
+        font-size: 30px;
+    }
 `
