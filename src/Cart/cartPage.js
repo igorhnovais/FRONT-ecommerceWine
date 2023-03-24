@@ -7,8 +7,7 @@ import CartList from "./cartList.js";
 
 export default function CartPage(){
     const token = useToken();
-    const {productsCart} = useGetProductcart(token);
-    console.log("teste123", productsCart)
+    const {productsCart, getProductsCart } = useGetProductcart(token);
 
     return (
         <>
@@ -18,7 +17,7 @@ export default function CartPage(){
                     {
                         (productsCart)
                         ?
-                        productsCart.data.map((item, i) => <CartList item={item} key={i}/> )
+                        productsCart.data.map((item, i) => <CartList item={item} key={i} getProductsCart={getProductsCart}/> )
                         :
                         <Loading/>
                     }
