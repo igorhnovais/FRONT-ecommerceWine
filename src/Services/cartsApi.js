@@ -30,7 +30,6 @@ export async function deleteProductCart(id, token){
 }
 
 export async function deleteSession(token){
-    console.log("chegou", token)
     const response = await api.delete("/session", {
         headers: {
             Authorization: `Bearer ${token}`
