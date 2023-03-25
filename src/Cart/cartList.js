@@ -1,19 +1,36 @@
 import styled from "styled-components";
 import {RiDeleteBin6Fill}from "react-icons/ri";
 import useDeleteProductCart from "../Hooks/Api/useDeleteProductCart";
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 export default function CartList({item, getProductsCart}){
     const {getDeleteProduct} = useDeleteProductCart();
+    const navigate = useNavigate()
 
 
     async function deleteProduct(id){
-        
-       const response = await getDeleteProduct(id);
-       await getProductsCart(); // pra recarregar a pagina;
 
-       if (!response){
-        alert("não conseguimos deletar")
-       } 
+        Swal.fire({
+        title: 'Você quer deletar esse produto mesmo?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Deletar',
+        denyButtonText: `Não deletar`,
+        }).then((result) => {
+        if (result.isConfirmed) {
+            getDeleteProduct(id);
+            getProductsCart();
+            reloadPage();
+            Swal.fire('Deletado');
+        } else if (result.isDenied) {
+            Swal.fire('ok =D')
+        }
+        })
+    }
+
+    function reloadPage(){
+        getProductsCart();
     }
 
     return (
