@@ -28,3 +28,13 @@ export async function deleteProductCart(id, token){
     })
     return response.data
 }
+
+export async function deleteSession(token){
+    console.log("chegou", token)
+    const response = await api.delete("/session", {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return response.data;
+}
