@@ -9,6 +9,8 @@ import useName from "../Hooks/useName";
 import ProductsList from "./productList";
 import Loading from "../Components/loading";
 import useToken from "../Hooks/useToken";
+import useDeleteSession from "../Hooks/Api/useDeleteSession";
+import Swal from 'sweetalert2';
 
 export default function HomePage(){
 
@@ -16,6 +18,7 @@ export default function HomePage(){
     const name = useName();
     const token = useToken();
     const navigate = useNavigate();
+    const {getDeleteSession} = useDeleteSession();
 
     function viewCart(){
         if(!token){
@@ -24,9 +27,26 @@ export default function HomePage(){
             window.location.reload();
             return;
         }
-
         navigate("/cart")
+    }
 
+    async function DeleteSession(){
+        Swal.fire({
+            title: 'Deseja sair mesmo ?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Sair',
+            denyButtonText: `Não sair`,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                getDeleteSession(token);
+                Swal.fire('Até logo')
+            } else if (result.isDenied) {
+                Swal.fire('ok =D');
+            }
+            })
+        
+       
     }
 
     return (
@@ -47,15 +67,19 @@ export default function HomePage(){
                 </ProductsSection>    
             </Nav>
 
-            <Footer>
+            <Footer>              
                 <FaShoppingCart onClick={viewCart}/>
-                <h3> Olá, {name}</h3>
-                <RiLogoutBoxRFill/>
+                <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>
+                {(token)
+                    ?
+                    <RiLogoutBoxRFill onClick={DeleteSession}/>
+                    :
+                    ""
+                }
+                
             </Footer>
 
         </>
-        
-        
     )
 }
 
