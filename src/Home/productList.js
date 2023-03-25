@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import useAddProductCart from "../Hooks/Api/useAddProductCart";
+import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 
 import { useNavigate } from "react-router-dom";
 
 
 export default function ProductsList({item}){
-    const {getAddProduct, addProductError} = useAddProductCart();
+    const {getAddProduct} = useAddProductCart();
     const navigate = useNavigate()
 
     async function AddCart(){
@@ -15,10 +16,28 @@ export default function ProductsList({item}){
         const response = await getAddProduct({id:item.id});
         
         if(!response){
-            alert("faça login!"); 
-            navigate("/sign-in"); 
-            window.location.reload()
-        } 
+            Swal.fire({
+            title: 'Para adicionar no carrinho precisa estar logado, quer entrar na sua conta?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Entrar',
+            denyButtonText: `Não entrar`,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                navigate("/sign-in"); 
+            } else if (result.isDenied) {
+                Swal.fire('ok =D')
+            }
+            })  
+        } else {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Produto Adicionado',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
     
     }
         
