@@ -17,7 +17,8 @@ export default function CartPage(){
                     {
                         (productsCart)
                         ?
-                        productsCart.data.map((item, i) => <CartList item={item} key={i} getProductsCart={getProductsCart}/> )
+                        (productsCart.data.length === 0) ? <H1>Seu carrinho não tem nenhum produto, adicione e volte aqui!</H1> :
+                        productsCart.data.map((item, i) => <CartList item={item} key={i} getProductsCart={getProductsCart} /> )
                         :
                         <Loading/>
                     }
@@ -34,6 +35,7 @@ const H1 = styled.h1`
     font-size: 80px;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 30px;
 `
 
