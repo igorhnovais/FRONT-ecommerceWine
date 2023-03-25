@@ -11,42 +11,56 @@ import Loading from "../Components/loading";
 import useToken from "../Hooks/useToken";
 import useDeleteSession from "../Hooks/Api/useDeleteSession";
 import Swal from 'sweetalert2';
+import { useState } from "react";
 
 export default function HomePage(){
 
     const {products} = useProducts();
-    const name = useName();
+    let name = useName();
+    const [userName, setUserName] = useState(name)
     const token = useToken();
+    const [userToken, setUserToken] = useState(token)
     const navigate = useNavigate();
     const {getDeleteSession} = useDeleteSession();
 
     function viewCart(){
-        if(!token){
-            alert("faça login")
-            navigate("/sign-in")
-            window.location.reload();
-            return;
+        if(!userToken){
+            Swal.fire({
+            title: 'Para entrar no carrinho precisa estar logado, quer entrar na sua conta?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Entrar',
+            denyButtonText: `Não entrar`,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                navigate("/sign-in"); 
+            } else if (result.isDenied) {
+                Swal.fire('ok =D')
+            }
+            })  
+        } else {
+            navigate("/cart");
         }
-        navigate("/cart")
+        
     }
 
     async function DeleteSession(){
         Swal.fire({
-            title: 'Deseja sair mesmo ?',
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: 'Sair',
-            denyButtonText: `Não sair`,
-            }).then((result) => {
-            if (result.isConfirmed) {
-                getDeleteSession(token);
-                Swal.fire('Até logo')
-            } else if (result.isDenied) {
-                Swal.fire('ok =D');
-            }
-            })
-        
-       
+        title: 'Deseja sair mesmo ?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Sair',
+        denyButtonText: `Não sair`,
+        }).then((result) => {
+        if (result.isConfirmed) {
+            getDeleteSession(token);
+            setUserName(false);
+            setUserToken(false)
+            Swal.fire('Até logo')
+        } else if (result.isDenied) {
+            Swal.fire('ok =D');
+        }
+        })
     }
 
     return (
@@ -69,8 +83,8 @@ export default function HomePage(){
 
             <Footer>              
                 <FaShoppingCart onClick={viewCart}/>
-                <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>
-                {(token)
+                <h3> {(userName) ? `Olá, ${userName}` : "Bem-vinde"}</h3>
+                {(userToken)
                     ?
                     <RiLogoutBoxRFill onClick={DeleteSession}/>
                     :
