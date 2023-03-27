@@ -4,10 +4,12 @@ import useGetProductcart from "../Hooks/Api/useGetProductCart";
 import useToken from "../Hooks/useToken";
 import Loading from "../Components/loading";
 import CartList from "./cartList.js";
+import useGetBalance from "../Hooks/Api/useGetBalance";
 
 export default function CartPage(){
     const token = useToken();
     const {productsCart, getProductsCart } = useGetProductcart(token);
+    const {balance, getBalanceCart} = useGetBalance(token);
 
     return (
         <>
@@ -17,13 +19,16 @@ export default function CartPage(){
                     {
                         (productsCart)
                         ?
-                        (productsCart.data.length === 0) ? <H1>Seu carrinho não tem nenhum produto, adicione e volte aqui!</H1> :
-                        productsCart.data.map((item, i) => <CartList item={item} key={i} getProductsCart={getProductsCart} /> )
+                        (productsCart.length === 0) ? <H1>Seu carrinho não tem nenhum produto, adicione e volte aqui!</H1> :
+                        productsCart.map((item, i) => <CartList item={item} key={i} getProductsCart={getProductsCart} getBalanceCart={getBalanceCart}/> )
                         :
                         <Loading/>
                     }
                 </ProductsSection> 
             </Nav>
+            <BalanceSection>
+                <h1>R$ {(balance / 100).toFixed(2).replace(".",",")}</h1>
+            </BalanceSection>
             
         </>
         
@@ -40,21 +45,37 @@ const H1 = styled.h1`
 `
 
 const Nav = styled.nav`
-    padding: 15px;
-    margin-bottom: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
+    //overflow-y: scroll;
 `
 
 const ProductsSection = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    //flex-direction: column;
     background-image: url("https://lovebeers.com.br/wp-content/uploads/2017/05/fundo-madeira.jpg");
     flex-wrap: wrap;
-    margin-top: 60px;
+    margin-top: 30px;
     border-radius: 5px;
     border: 5px solid #322938;
+    max-height: 500px;
+    overflow-y: auto;
+`
+
+const BalanceSection = styled.section`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 50px;
+    & h1{
+        color: white;
+        font-size: 40px;
+        padding-top: 10px;
+        background-color: #322938;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 `
