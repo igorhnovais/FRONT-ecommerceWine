@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import {RiDeleteBin6Fill}from "react-icons/ri";
 import useDeleteProductCart from "../Hooks/Api/useDeleteProductCart";
-import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
+import { useState } from "react";
 
-export default function CartList({item, getProductsCart}){
+
+export default function CartList({item, getProductsCart, getBalanceCart}){
     const {getDeleteProduct} = useDeleteProductCart();
-    const navigate = useNavigate()
+    const [reload, setReload] = useState(item);
 
 
     async function deleteProduct(id){
@@ -20,6 +21,7 @@ export default function CartList({item, getProductsCart}){
         }).then((result) => {
         if (result.isConfirmed) {
             getDeleteProduct(id);
+            getBalanceCart();
             getProductsCart();
             reloadPage();
             Swal.fire('Deletado');
@@ -27,10 +29,12 @@ export default function CartList({item, getProductsCart}){
             Swal.fire('ok =D')
         }
         })
+        getProductsCart();
     }
 
     function reloadPage(){
         getProductsCart();
+        getBalanceCart();
     }
 
     return (
@@ -52,10 +56,11 @@ export default function CartList({item, getProductsCart}){
     )
 }
 
-const Nav = styled.nav`
+const Nav = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
 `
 
 const WineDiv = styled.div`
