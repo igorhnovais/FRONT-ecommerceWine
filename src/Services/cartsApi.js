@@ -16,7 +16,7 @@ export async function findManyProductsCart(token){
             Authorization: `Bearer ${token}`
         }
     })
-    return response;
+    return response.data;
 }
 
 export async function deleteProductCart(id, token){
@@ -36,4 +36,14 @@ export async function deleteSession(token){
         }
     })
     return response.data;
+}
+
+export async function getBalance(token){
+    const response = await api.get("/cart-balance", {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+    //console.log("oi",response.data);
+    return response.data[0].balance;
 }
