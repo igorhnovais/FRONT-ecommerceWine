@@ -5,6 +5,7 @@ import useToken from "../Hooks/useToken";
 import Loading from "../Components/loading";
 import CartList from "./cartList.js";
 import useGetBalance from "../Hooks/Api/useGetBalance";
+import PaymentButton from "./paymentButtonStripe"
 
 export default function CartPage(){
     const token = useToken();
@@ -29,6 +30,9 @@ export default function CartPage(){
             <BalanceSection>
                 <h1>R$ {(balance / 100).toFixed(2).replace(".",",")}</h1>
             </BalanceSection>
+            <PaymentButton>
+                
+            </PaymentButton>
             
         </>
         
