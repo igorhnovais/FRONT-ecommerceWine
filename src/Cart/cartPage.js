@@ -30,12 +30,11 @@ export default function CartPage(){
             <BalanceSection>
                 <h1>R$ {(balance / 100).toFixed(2).replace(".",",")}</h1>
             </BalanceSection>
-            <PaymentButton>
-                
-            </PaymentButton>
-            
+
+            <ButtonSection>
+                <PaymentButton/>
+            </ButtonSection> 
         </>
-        
     )
 }
 
@@ -52,14 +51,12 @@ const Nav = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
-    //overflow-y: scroll;
 `
 
 const ProductsSection = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    //flex-direction: column;
     background-image: url("https://lovebeers.com.br/wp-content/uploads/2017/05/fundo-madeira.jpg");
     flex-wrap: wrap;
     margin-top: 30px;
@@ -82,4 +79,10 @@ const BalanceSection = styled.section`
         padding-left: 10px;
         padding-right: 10px;
     }
+`
+
+const ButtonSection = styled.section`
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 `
