@@ -64,6 +64,7 @@ const ProductsSection = styled.section`
     border: 5px solid #322938;
     max-height: 500px;
     overflow-y: auto;
+    box-shadow: 0px 0px 10px white;
 `
 
 const BalanceSection = styled.section`
@@ -78,6 +79,7 @@ const BalanceSection = styled.section`
         background-color: #322938;
         padding-left: 10px;
         padding-right: 10px;
+        box-shadow: 0px 6px 8px white;
     }
 `
 

@@ -89,8 +89,7 @@ export default function HomePage(){
                     <RiLogoutBoxRFill onClick={DeleteSession}/>
                     :
                     ""
-                }
-                
+                }           
             </Footer>
 
         </>
@@ -113,8 +112,11 @@ export const TitleDiv = styled.div`
     color: #322938;
     position: fixed;
     top: 0;
-	//background-color: #31684A;
     background-color: black;
+    & h1{
+        text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    }
 `
 
 const ProductsSection = styled.section`
@@ -126,8 +128,10 @@ const ProductsSection = styled.section`
     //background-image: url("https://img.freepik.com/fotos-premium/fundo-de-madeira-velho-grunge-texturizado-escuro_7182-370.jpg");
     flex-wrap: wrap;
     margin-top: 60px;
+    margin-bottom: 100px;
     border-radius: 5px;
     border: 5px solid #322938;
+    box-shadow: 0px 0px 10px white;
 `
 
 const Footer = styled.footer`

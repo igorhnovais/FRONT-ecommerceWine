@@ -43,7 +43,8 @@ const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.35);
+    //box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 4px 6px white;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
