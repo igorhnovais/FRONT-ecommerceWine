@@ -3,14 +3,15 @@ import {RiDeleteBin6Fill}from "react-icons/ri";
 import useDeleteProductCart from "../Hooks/Api/useDeleteProductCart";
 import Swal from 'sweetalert2';
 import { useState } from "react";
+import { useEffect } from "react";
 
 
 export default function CartList({item, getProductsCart, getBalanceCart}){
     const {getDeleteProduct} = useDeleteProductCart();
-    const [reload, setReload] = useState(item);
+    const [reload, setReload] = useState([]);
 
 
-    async function deleteProduct(id){
+    function deleteProduct(id){
 
         Swal.fire({
         title: 'Você quer deletar esse produto mesmo?',
@@ -21,21 +22,18 @@ export default function CartList({item, getProductsCart, getBalanceCart}){
         }).then((result) => {
         if (result.isConfirmed) {
             getDeleteProduct(id);
-            getBalanceCart();
-            getProductsCart();
-            reloadPage();
+            setReload([]);
             Swal.fire('Deletado');
         } else if (result.isDenied) {
-            Swal.fire('ok =D')
+            Swal.fire('ok =D');
         }
-        })
-        getProductsCart();
+        }) 
     }
 
-    function reloadPage(){
+    useEffect(() => {
         getProductsCart();
         getBalanceCart();
-    }
+    }, [reload])
 
     return (
         <>
