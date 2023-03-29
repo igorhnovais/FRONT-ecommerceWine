@@ -75,6 +75,7 @@ const WineDiv = styled.div`
     border-radius: 5px;
     margin: 10px 10px 0 10px;
     flex-shrink: 0;
+    padding: 10px;
     & a{
         text-decoration: none;
         color: #322938;   
@@ -85,6 +86,7 @@ const Img = styled.img`
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 130px;
 `
 
 const H2 = styled.h2`
