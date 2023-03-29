@@ -11,6 +11,7 @@ export default function CartPage(){
     const token = useToken();
     const {productsCart, getProductsCart } = useGetProductcart(token);
     const {balance, getBalanceCart} = useGetBalance(token);
+    //const token = localStorage.getItem("token")
 
     return (
         <>

@@ -30,7 +30,10 @@ export default function SignInPage(){
 
         const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-in`, login);
 
-        promise.then(resp => {setUser(resp.data); navigate("/products")});
+        promise.then(resp => {setUser(resp.data); 
+            localStorage.setItem("token", resp.data.token);
+            localStorage.setItem("name", resp.data.name) ;
+            navigate("/products")});
 
         promise.catch((err => {alert(err.response?.data.message); setHabilit(false); setDisabled(false)}));
     };
