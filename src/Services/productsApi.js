@@ -20,3 +20,8 @@ export async function getCups(){
     const response = await api.get("/products/cup");
     return response.data;
 }
+
+export async function getTaboos(){
+    const response = await api.get("/products/taboo");
+    return response.data;
+}
