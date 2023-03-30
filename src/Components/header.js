@@ -6,12 +6,16 @@ import { useNavigate } from "react-router-dom";
 
 import useToken from "../Hooks/useToken";
 import { useState } from "react";
+import useProducts from "../Hooks/Api/useProducts";
+import useGetWines from "../Hooks/Api/useGetWines";
 
-export default function Header(){
+export default function Header({setResponse}){
     const [menu, setMenu] = useState("none")
 
     const token = useToken();
     const navigate = useNavigate();
+    const {products} = useProducts();
+    const {wines} = useGetWines();
 
 
     function viewCart(){
@@ -43,6 +47,23 @@ export default function Header(){
         }
     }
 
+    function viewProduct(num){
+        switch(num){
+            case 1:
+                setResponse(products);
+                break;
+            case 2:
+                setResponse(wines);
+                break;
+            case 3:
+                setResponse("taças");
+                break;
+            case 4:
+                setResponse("tabuas");
+                break;
+        }
+    }
+
     return (
         <>
             <Section>
@@ -58,16 +79,16 @@ export default function Header(){
                 </MenuDiv>
             </Section>
             <ListSection showMenu={menu}>
-                <Div>
+                <Div onClick={() => viewProduct(1)}>
                     <h6>Todos os produtos</h6>
                 </Div>
-                <Div>
+                <Div onClick={() => viewProduct(2)}>
                     <h6>Vinhos</h6>
                 </Div>
-                <Div>
+                <Div onClick={() => viewProduct(3)}>
                     <h6>Taças</h6>
                 </Div>
-                <Div>
+                <Div onClick={() => viewProduct(4)}>
                     <h6>tabuas</h6>
                 </Div>
             </ListSection>
