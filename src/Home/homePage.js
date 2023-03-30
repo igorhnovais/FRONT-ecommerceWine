@@ -17,12 +17,11 @@ import { useEffect } from "react";
 export default function HomePage(){
 
     const {products} = useProducts();
-    let name = useName();
+    const name = useName();
     const token = useToken();
     const {getDeleteSession} = useDeleteSession();
 
     const [response, setResponse] = useState([]);
-
 
     async function DeleteSession(){
         Swal.fire({
@@ -42,7 +41,7 @@ export default function HomePage(){
         })
     }
 
-    useEffect(() => {}, [response])
+    useEffect(() => {setResponse(products)}, [products]);
 
     return (
         <>
