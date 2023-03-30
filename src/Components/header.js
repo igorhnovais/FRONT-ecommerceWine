@@ -8,6 +8,7 @@ import useToken from "../Hooks/useToken";
 import { useState } from "react";
 import useProducts from "../Hooks/Api/useProducts";
 import useGetWines from "../Hooks/Api/useGetWines";
+import useGetCups from "../Hooks/Api/useGetCups";
 
 export default function Header({setResponse}){
     const [menu, setMenu] = useState("none")
@@ -16,6 +17,7 @@ export default function Header({setResponse}){
     const navigate = useNavigate();
     const {products} = useProducts();
     const {wines} = useGetWines();
+    const {cups} = useGetCups();
 
 
     function viewCart(){
@@ -56,7 +58,7 @@ export default function Header({setResponse}){
                 setResponse(wines);
                 break;
             case 3:
-                setResponse("taças");
+                setResponse(cups);
                 break;
             case 4:
                 setResponse("tabuas");
