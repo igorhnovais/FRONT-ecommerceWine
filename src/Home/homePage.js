@@ -10,8 +10,8 @@ import Loading from "../Components/loading";
 import useToken from "../Hooks/useToken";
 import useDeleteSession from "../Hooks/Api/useDeleteSession";
 import Header from "../Components/header";
-
-
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 export default function HomePage(){
@@ -19,10 +19,10 @@ export default function HomePage(){
     const {products} = useProducts();
     let name = useName();
     const token = useToken();
-    
     const {getDeleteSession} = useDeleteSession();
 
-   
+    const [response, setResponse] = useState([]);
+
 
     async function DeleteSession(){
         Swal.fire({
@@ -42,22 +42,23 @@ export default function HomePage(){
         })
     }
 
+    useEffect(() => {}, [response])
+
     return (
         <>
-            <Header/>
+            <Header setResponse={setResponse}/>
 
             <Nav>
                 <ProductsSection>
-                   {(products) 
+                   {(response) 
                     ?
-                    (products.data.map((item, i) => <ProductsList item={item} key={i}/>)) 
+                    (response.map((item, i) => <ProductsList item={item} key={i}/>)) 
                     :
                     <Loading/>}               
                 </ProductsSection>    
             </Nav>
 
-            <Footer>              
-                
+            <Footer>                  
                 <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>
                 {(token)
                     ?
