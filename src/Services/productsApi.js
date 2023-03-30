@@ -13,5 +13,10 @@ export async function getOneProduct(productId){
 
 export async function getWines(){
     const response = await api.get("/products/wine");
-    return response.data
+    return response.data;
+}
+
+export async function getCups(){
+    const response = await api.get("/products/cup");
+    return response.data;
 }
