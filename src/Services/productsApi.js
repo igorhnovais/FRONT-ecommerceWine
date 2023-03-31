@@ -25,3 +25,8 @@ export async function getTaboos(){
     const response = await api.get("/products/taboo");
     return response.data;
 }
+
+export async function getProductsSearched(search){
+    const response = await api.post("/products/searched", {search});
+    return response.data;
+}
