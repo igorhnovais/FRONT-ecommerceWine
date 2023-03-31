@@ -3,6 +3,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { TiThMenuOutline } from "react-icons/ti"
 import Swal from 'sweetalert2';
 import { useNavigate } from "react-router-dom";
+import { DebounceInput } from 'react-debounce-input';
 
 import useToken from "../Hooks/useToken";
 import { useState } from "react";
@@ -10,10 +11,13 @@ import useProducts from "../Hooks/Api/useProducts";
 import useGetWines from "../Hooks/Api/useGetWines";
 import useGetCups from "../Hooks/Api/useGetCups";
 import useGetTaboos from "../Hooks/Api/useGetTaboos";
+import api from "../Services/api";
+import SearchHeader from "./searchHeader";
 
 export default function Header({setResponse}){
     const [menu, setMenu] = useState("none")
-
+    const [quest, setQuest] = useState([]);
+    const [text, setText] = useState();
     const token = useToken();
     const navigate = useNavigate();
     const {products} = useProducts();
@@ -67,6 +71,17 @@ export default function Header({setResponse}){
         }
     }
 
+    const HandleChange = (value => {
+        
+        if(value.length >= 1){
+            const promise =  api.post("products/searched", {search: value});
+            promise.then(resp => setQuest(resp.data))
+
+        } else {
+            setQuest([]);
+        }
+    })
+
     return (
         <>
             <Section>
@@ -74,13 +89,22 @@ export default function Header({setResponse}){
                     <h1>WineDrop</h1>
                 </TitleDiv>
                 <InputDiv>
-                    <input></input>
+                    <DebounceInput
+                        value={text}
+                        minLength={1}
+                        debounceTimeout={400}
+                        placeholder={"Search for products"}
+                        onChange={event => HandleChange(event.target.value)}
+                    />
                 </InputDiv>
                 <MenuDiv>
                     <FaShoppingCart onClick={viewCart}/>
                     <TiThMenuOutline onClick={viewMenu}/>
                 </MenuDiv>
             </Section>
+            <SearchDiv>
+                {quest?.map((item, i) => <SearchHeader item={item} key={i}/>)}
+            </SearchDiv>
             <ListSection showMenu={menu}>
                 <Div onClick={() => viewProduct(1)}>
                     <h6>Todos os produtos</h6>
@@ -107,6 +131,7 @@ const Section = styled.section`
     top: 0;
     background-color: black;
     width: 100%;
+    height: 70px;
     padding: 0 30px;
 `
 
@@ -126,9 +151,28 @@ const TitleDiv = styled.div`
 
 const InputDiv = styled.div`
     width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50px;
+    left:0;
+    display: flex;
+    flex-direction: column;
    & input{
     width: 250px;
    }
+`
+const SearchDiv = styled.div`
+    background-color: #00000099;
+    width: 300px;
+    position: fixed;
+    top: 70px;
+    left: calc(39%);
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    border: 5px solid #322938;
+    border-radius: 5px;
 `
 
 const MenuDiv = styled.div`
