@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const All = styled.div`
+    display: flex;
+    
+`
+
+export const Section = styled.section`
+    width: 100%;
+    background-image:url(https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/06/02/vinho-0-1iemoc5o9yxis.jpg);
+    background-repeat: no-repeat;
+    background-size: 800px ;
+`
+
 export const Nav = styled.nav`
     display: flex;
     flex-direction: column;
@@ -8,7 +20,7 @@ export const Nav = styled.nav`
     width: 100%;
     height: 100vh;
     padding-bottom: 150px;
-`
+    `
 
 export const SectionImg = styled.section`
     margin-top: 100px;

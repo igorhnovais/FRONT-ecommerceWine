@@ -4,7 +4,7 @@ import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 
 import {AuthContext} from "../Components/auth";
-import {Nav, SectionImg, DivInput, DivA, Button} from "./styled";
+import {All, Section, Nav, SectionImg, DivInput, DivA, Button} from "./styled";
 
 export default function SignInPage(){
 
@@ -39,27 +39,31 @@ export default function SignInPage(){
     };
 
     return (
-        <>
-            <Nav>
-                <SectionImg>
-                    <h1> WineDrop </h1>
-                </SectionImg>
+        <>  
+            <All>
+                <Section>
+                    <h1>oi</h1>
+                </Section>
+                <Nav>
+                    <SectionImg>
+                        <h1> WineDrop </h1>
+                    </SectionImg>
 
-                <form onSubmit={signIn}>
-                    <DivInput >
-                        <input disabled={disabled} placeholder="E-mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
-                        <input disabled={disabled} placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
-                        <Button disabled={disabled} type="submit"> {!habilit ? "Entrar" : <ThreeDots color={"white"}/>} </Button>
-                    </DivInput>
-                </form>
+                    <form onSubmit={signIn}>
+                        <DivInput >
+                            <input disabled={disabled} placeholder="E-mail" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                            <input disabled={disabled} placeholder="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
+                            <Button disabled={disabled} type="submit"> {!habilit ? "Entrar" : <ThreeDots color={"white"}/>} </Button>
+                        </DivInput>
+                    </form>
 
-                <DivA>
-                    <Link to="/sign-up" data-identifier="sign-up-action">
-                        Não tem uma conta? Cadastre-se! 
-                    </Link>
-                </DivA>
-            </Nav> 
-
+                    <DivA>
+                        <Link to="/sign-up" data-identifier="sign-up-action">
+                            Não tem uma conta? Cadastre-se! 
+                        </Link>
+                    </DivA>
+                </Nav> 
+            </All>
         </>
     )
 }

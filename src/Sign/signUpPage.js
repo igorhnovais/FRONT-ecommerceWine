@@ -56,7 +56,7 @@ export default function HomePageCadastro() {
                 </form>
 
                 <DivA>
-                    <Link to="/">
+                    <Link to="/sign-in">
                         Já tem uma conta? Faça login
                     </Link>
                 </DivA>

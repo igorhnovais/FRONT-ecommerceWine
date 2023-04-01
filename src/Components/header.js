@@ -163,7 +163,7 @@ const InputDiv = styled.div`
    }
 `
 const SearchDiv = styled.div`
-    background-color: #00000099;
+    background-color: rgba(0, 0, 0, 0.95);
     width: 300px;
     position: fixed;
     top: 70px;

@@ -51,34 +51,38 @@ export default function OneProduct(){
                 {(oneProduct)
                     ?
                     (<>
-                        <SectionImg>
-                        <img src={oneProduct.image} alt={oneProduct.name}/>
-                        </SectionImg>
+                    <DivProduct>
+                        <DivImage>
+                            <SectionImg>
+                                <img src={oneProduct.image} alt={oneProduct.name}/>
+                            </SectionImg>
+                        </DivImage>
 
-                        <SectionName>
-                            <H1> {oneProduct.name}</H1>
-                            <p>{oneProduct.type}</p>
-                            <p>{oneProduct.alcohol}</p>
-                        </SectionName>
+                        <DivInfo>
+                            <SectionName>
+                                <H1> {oneProduct.name}</H1>
+                                <p>{oneProduct.type}</p>
+                                <p>{oneProduct.alcohol}</p>
+                            </SectionName>
 
-                        <SectionDescription>  
-                            <h6> Comentario do Sommelier:</h6>                 
-                            <p>{oneProduct.description}</p>
-                        </SectionDescription>
+                            <SectionDescription>  
+                                <h6> Comentario do Sommelier:</h6>                 
+                                <p>{oneProduct.description}</p>
+                            </SectionDescription>
 
-                        <SectionValue>                   
-                            <p> R$ {(oneProduct.value / 100).toFixed(2).replace(".",",")}</p>
-                        </SectionValue>
-
+                            <SectionValue>                   
+                                <p> R$ {(oneProduct.value / 100).toFixed(2).replace(".",",")}</p>
+                            </SectionValue>
+                        </DivInfo>
+                        
+                    </DivProduct>
                         <Button onClick={() => AddCart(oneProduct.id)}> Adicionar ao carrinho </Button>
                     </>)
                     :
                     <Loading/>
 
                     }
-                
             </Nav>
-            <h1>oi</h1>
         </>
     )
 }
@@ -89,15 +93,42 @@ const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/3226074-madeira-textura-fundo-vetor.jpg) ;
+    background-size: 100% 100%;
+`
+
+const DivProduct = styled.div`
+    display: flex;
+    background-color: white;
+    border: 5px solid #322938;
+    width: 60%;
+`
+
+const DivImage = styled.div`
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+`
+
+const DivInfo = styled.div`
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 5px solid #322938;
+    padding: 30px;
 `
 
 const SectionImg = styled.section`
     background-color: white;
-    max-width: 400px;
+    width: 250px;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 5px;
-    border: 5px solid #322938;
     & img{
         width: 150px;
     }
@@ -132,7 +163,6 @@ const SectionDescription = styled.section`
     padding: 10px;
     font-size: 20px;
     border-radius: 5px;
-    border: 5px solid #322938;
     & h6{
         margin-bottom: 10px;
         color: #322938;
@@ -141,7 +171,6 @@ const SectionDescription = styled.section`
 `
 
 const SectionValue = styled.section`
-    //background-color: white;
     margin-top: 20px;
     font-size: 50px;
     color: #322938;
@@ -154,7 +183,7 @@ const Button = styled.button`
     border: none;
     border-radius: 3px;
     width: 303px;
-    margin-top: 50px;
+    margin-top: 30px;
     height: 45px;
     display: flex;
     justify-content: center;
