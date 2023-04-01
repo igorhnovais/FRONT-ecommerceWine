@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import useOneProduct from "../Hooks/Api/useOneProduct";
 import Loading from "../Components/loading";
 import useAddProductCart from "../Hooks/Api/useAddProductCart";
+import Header from "../Components/header"
 
 export default function OneProduct(){
 
@@ -47,6 +48,7 @@ export default function OneProduct(){
 
     return (
         <>
+            <Header/>
             <Nav>
                 {(oneProduct)
                     ?
@@ -94,7 +96,11 @@ const Nav = styled.nav`
     align-items: center;
     padding: 20px;
     background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/3226074-madeira-textura-fundo-vetor.jpg) ;
-    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin-top: 70px;
 `
 
 const DivProduct = styled.div`

@@ -183,7 +183,17 @@ const MenuDiv = styled.div`
         box-shadow: 0 0 6px white;
         border-radius: 10px;
         cursor: pointer;
-        margin-left: 7px;
+        margin-left: 7px;   
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        :active {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.35);
+            transform: translate(2px, 2px);
+        }
     }
 `
 
