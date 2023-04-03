@@ -68,7 +68,7 @@ const WineDiv = styled.div`
     align-items: center;
     padding: 10px;
     height: 145px;
-    width: 90vw;
+    width: 70vw;
     border: 2px solid #322938;
     border-radius: 5px;
     margin: 10px 0 0 10px;

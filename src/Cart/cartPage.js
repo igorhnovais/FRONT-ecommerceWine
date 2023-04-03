@@ -2,20 +2,21 @@ import styled from "styled-components";
 
 import useGetProductcart from "../Hooks/Api/useGetProductCart";
 import useToken from "../Hooks/useToken";
+import useName from "../Hooks/useName";
 import Loading from "../Components/loading";
 import CartList from "./cartList.js";
 import useGetBalance from "../Hooks/Api/useGetBalance";
-import PaymentButton from "./paymentButtonStripe"
+import PaymentButton from "./paymentButtonStripe";
 
 export default function CartPage(){
     const token = useToken();
+    const name = useName();
     const {productsCart, getProductsCart } = useGetProductcart(token);
     const {balance, getBalanceCart} = useGetBalance(token);
-    //const token = localStorage.getItem("token")
 
     return (
         <>
-            <H1>carrinho</H1>
+            <H1> Seu carrinho {name}!</H1>
             <Nav>
                 <ProductsSection>
                     {
@@ -64,6 +65,7 @@ const ProductsSection = styled.section`
     border-radius: 5px;
     border: 5px solid #322938;
     max-height: 500px;
+    width: 80%;
     overflow-y: auto;
     box-shadow: 0px 0px 10px white;
 `
@@ -72,7 +74,7 @@ const BalanceSection = styled.section`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 130px;
     & h1{
         color: white;
         font-size: 40px;

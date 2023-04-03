@@ -177,8 +177,8 @@ const Section = styled.section`
 
 const TitleDiv = styled.div`
     height: 70px;
+    width: 33%;
     display: flex;
-    justify-content: center;
     align-items: center;
     font-family: 'Saira Stencil One';
     font-size: 35px;
@@ -190,13 +190,12 @@ const TitleDiv = styled.div`
 `
 
 const InputDiv = styled.div`
-    width: 30%;
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 50px;
     left:0;
-    display: flex;
     flex-direction: column;
    & input{
     width: 250px;
@@ -217,6 +216,9 @@ const SearchDiv = styled.div`
 `
 
 const MenuDiv = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    width: 33%;
     & svg {
         font-size: 45px;
         color: white;
