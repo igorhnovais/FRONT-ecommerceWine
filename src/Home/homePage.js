@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { RiLogoutBoxRFill } from "react-icons/ri";
+
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 
@@ -8,7 +8,7 @@ import useName from "../Hooks/useName";
 import ProductsList from "./productList";
 import Loading from "../Components/loading";
 import useToken from "../Hooks/useToken";
-import useDeleteSession from "../Hooks/Api/useDeleteSession";
+
 import Header from "../Components/header";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -18,28 +18,13 @@ export default function HomePage(){
 
     const {products} = useProducts();
     const name = useName();
-    const token = useToken();
-    const {getDeleteSession} = useDeleteSession();
+    console.log("oi", name);
+
+    
 
     const [response, setResponse] = useState([]);
 
-    async function DeleteSession(){
-        Swal.fire({
-        title: 'Deseja sair mesmo ?',
-        showDenyButton: true,
-        showCancelButton: true,
-        confirmButtonText: 'Sair',
-        denyButtonText: `Não sair`,
-        }).then((result) => {
-        if (result.isConfirmed) {
-            getDeleteSession(token);
-            localStorage.clear(); 
-            Swal.fire('Até logo')
-        } else if (result.isDenied) {
-            Swal.fire('ok =D');
-        }
-        })
-    }
+    
 
     useEffect(() => {setResponse(products)}, [products]);
 
@@ -58,13 +43,7 @@ export default function HomePage(){
             </Nav>
 
             <Footer>                  
-                <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>
-                {(token)
-                    ?
-                    <RiLogoutBoxRFill onClick={DeleteSession}/>
-                    :
-                    ""
-                }           
+                <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>          
             </Footer>
 
         </>
@@ -94,7 +73,7 @@ const ProductsSection = styled.section`
 const Footer = styled.footer`
     background-color: #322938;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 20px;
     position: fixed;
     bottom:0;
