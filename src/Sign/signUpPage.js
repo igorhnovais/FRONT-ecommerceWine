@@ -33,7 +33,7 @@ export default function HomePageCadastro() {
 
         const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/sign-up`, registration);
 
-        promise.then((resp => { alert('Parabéns por ter criado sua conta'); navigate("/");}));
+        promise.then((resp => { alert('Parabéns por ter criado sua conta'); navigate("/sign-in");}));
 
         promise.catch((err) => {alert(err.response.data.message); setHabilit(false); setDisabled(false)});
     };
