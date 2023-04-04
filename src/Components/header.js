@@ -19,6 +19,7 @@ import useGetTaboos from "../Hooks/Api/useGetTaboos";
 import api from "../Services/api";
 import SearchHeader from "./searchHeader";
 import useDeleteSession from "../Hooks/Api/useDeleteSession";
+import Adm from "../Components/adm"
 
 export default function Header({setResponse}){
     const [menu, setMenu] = useState("none")
@@ -148,7 +149,7 @@ export default function Header({setResponse}){
                     <IoTabletPortrait/>
                     <h6>tabuas</h6>
                 </Div>
-                
+                <Adm/>
                 {(token)
                     ?
                     <Div onClick={DeleteSession}>
