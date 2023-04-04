@@ -44,6 +44,5 @@ export async function getBalance(token){
             Authorization: `Bearer ${token}`
         }
     });
-    //console.log("oi",response.data);
     return response.data[0].balance;
 }
