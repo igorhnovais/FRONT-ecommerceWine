@@ -18,13 +18,9 @@ export default function HomePage(){
 
     const {products} = useProducts();
     const name = useName();
-    console.log("oi", name);
-
-    
 
     const [response, setResponse] = useState([]);
 
-    
 
     useEffect(() => {setResponse(products)}, [products]);
 
