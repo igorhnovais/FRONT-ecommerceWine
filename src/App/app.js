@@ -9,6 +9,7 @@ import HomePage from "../Home/homePage";
 import OneProduct from "../Home/oneProduct";
 import CartPage from "../Cart/cartPage";
 import NotFound from "../Components/notFound";
+import AdmPage from "../Adm/admPage";
 
 export default function App(){
     return (
@@ -23,6 +24,7 @@ export default function App(){
                         <Route path={"/products"} element={<HomePage/>}/>
                         <Route path={"/product/:productId"} element={<OneProduct/>}/>
                         <Route path={"/cart"} element={<CartPage/>}/>
+                        <Route path={"/adm"} element={<AdmPage/>}/>
                         <Route path={"/404"} element={<NotFound/>}/>
                         <Route path={"*"} element={<Navigate replace to="/404"/>}/>
                     </Routes>
