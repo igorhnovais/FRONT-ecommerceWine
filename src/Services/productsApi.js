@@ -30,3 +30,13 @@ export async function getProductsSearched(search){
     const response = await api.post("/products/searched", {search});
     return response.data;
 }
+
+export async function deleteProductAdm(id, token){
+
+    const response = await api.delete(`/adm/${id}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    })
+    return response.data
+}
