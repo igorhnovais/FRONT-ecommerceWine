@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-import { useNavigate } from "react-router-dom";
-import Swal from 'sweetalert2';
+// import { useNavigate } from "react-router-dom";
+// import Swal from 'sweetalert2';
 
 import useProducts from "../Hooks/Api/useProducts";
 import useName from "../Hooks/useName";
 import ProductsList from "./productList";
 import Loading from "../Components/loading";
-import useToken from "../Hooks/useToken";
+// import useToken from "../Hooks/useToken";
 
 import Header from "../Components/header";
 import { useState } from "react";
