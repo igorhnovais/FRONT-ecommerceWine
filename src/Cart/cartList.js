@@ -59,6 +59,13 @@ const Nav = styled.div`
     justify-content: center;
     align-items: center;
     overflow-y: auto;
+    cursor:pointer;
+    transition: transform 0.3s ease-in-out;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    &:hover {
+        transform: scale(1.01);
+    }
 `
 
 const WineDiv = styled.div`

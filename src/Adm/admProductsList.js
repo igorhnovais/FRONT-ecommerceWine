@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Swal from 'sweetalert2';
 import { useState } from "react";
 import { useEffect } from "react";
+import {RiDeleteBin6Fill}from "react-icons/ri";
 
 import useDeleteAdm from "../Hooks/Api/useDeleteAdm";
 
@@ -40,7 +41,7 @@ export default function AdmProductsList({item, getProducts}){
             <Div>
                 <img src={item.image}/>
                 <h6>{item.name}</h6>
-                <button onClick={() => deleteProduct(item.id)}>x</button>
+                <button onClick={() => deleteProduct(item.id)}><RiDeleteBin6Fill/></button>
             </Div>
         </>
     )
@@ -51,8 +52,10 @@ const Div = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    width: 100vh;
-    margin-top: 5px;
+    width: 100%;
+    margin-bottom: 10px; 
+    margin-left: 10px;
+    margin-right: 10px;
     background-color: rgba(255,255,255, 0.5);
     & img{
         width: 20px;
@@ -64,6 +67,14 @@ const Div = styled.div`
         text-shadow: 0 0 9px black;
     }
     & button{
-
+        background-color: red;
+        border: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        & svg{
+            display: flex;
+            justify-content: center;
+        }
     }
 `

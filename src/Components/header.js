@@ -258,6 +258,11 @@ const Div = styled.div`
     margin-top: 10px;
     padding: 5px;
     display: flex;
+    cursor:pointer;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
     & h6{
         color: white;
         text-shadow: 0 0 6px white;

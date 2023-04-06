@@ -61,6 +61,7 @@ export default function ProductsList({item}){
 const Nav = styled.nav`
     display: flex;
     flex-direction: column;
+    cursor:pointer;
 `
 
 const WineDiv = styled.div`
