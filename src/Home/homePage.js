@@ -56,13 +56,13 @@ const ProductsSection = styled.section`
     justify-content: center;
     align-items: center;
     //background-image: url("https://i.pinimg.com/originals/90/43/a7/9043a730ef9d90e2b2e6c92265939457.jpg");
-    background-image: url("https://lovebeers.com.br/wp-content/uploads/2017/05/fundo-madeira.jpg");
+    //background-image: url("https://lovebeers.com.br/wp-content/uploads/2017/05/fundo-madeira.jpg");
     //background-image: url("https://img.freepik.com/fotos-premium/fundo-de-madeira-velho-grunge-texturizado-escuro_7182-370.jpg");
     flex-wrap: wrap;
     margin-top: 60px;
     margin-bottom: 100px;
     border-radius: 5px;
-    border: 5px solid #322938;
+    //border: 5px solid #322938;
     box-shadow: 0px 0px 10px white;
 `
 

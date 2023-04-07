@@ -170,7 +170,8 @@ const Section = styled.section`
     align-items: center;
     position: fixed;
     top: 0;
-    background-color: black;
+    background-color:rgb(239,235,199);
+    box-shadow: 6px 2px 6px black;
     width: 100%;
     height: 70px;
     padding: 0 30px;
@@ -208,7 +209,7 @@ const SearchDiv = styled.div`
     width: 300px;
     position: fixed;
     top: 70px;
-    left: calc(39%);
+    left: calc(36%);
     display: flex;
     flex-direction: column;
     align-items: space-between;

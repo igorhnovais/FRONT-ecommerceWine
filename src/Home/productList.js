@@ -65,7 +65,7 @@ const Nav = styled.nav`
 `
 
 const WineDiv = styled.div`
-    background-color: #c6c6c6;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;

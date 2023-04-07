@@ -56,7 +56,7 @@ const Div = styled.div`
     margin-bottom: 10px; 
     margin-left: 10px;
     margin-right: 10px;
-    background-color: rgba(255,255,255, 0.5);
+    background-color: rgba(159,140,212, 0.5);
     & img{
         width: 20px;
         margin-right: 5px;

@@ -126,7 +126,7 @@ const Section = styled.section`
     justify-content: center;
     margin-top: 20px;
     border: 5px solid white;
-    background-color: rgb(159,140,212);
+    background-color: rgb(139,104,55);
 `
 
 const AddDiv = styled.form`

@@ -7,6 +7,8 @@ import Loading from "../Components/loading";
 import CartList from "./cartList.js";
 import useGetBalance from "../Hooks/Api/useGetBalance";
 import PaymentButton from "./paymentButtonStripe";
+import CartEmpty from "./cartEmpty";
+import Header from "../Components/header";
 
 export default function CartPage(){
     const token = useToken();
@@ -16,26 +18,41 @@ export default function CartPage(){
 
     return (
         <>
+            <Header/>
             <H1> Seu carrinho {name}!</H1>
             <Nav>
                 <ProductsSection>
                     {
                         (productsCart)
                         ?
-                        (productsCart.length === 0) ? <H1>Seu carrinho não tem nenhum produto, adicione e volte aqui!</H1> :
+                        (productsCart.length === 0) ? <CartEmpty/> :
                         productsCart.map((item, i) => <CartList item={item} key={i} getProductsCart={getProductsCart} getBalanceCart={getBalanceCart}/> )
                         :
                         <Loading/>
                     }
                 </ProductsSection> 
             </Nav>
-            <BalanceSection>
-                <h1>R$ {(balance / 100).toFixed(2).replace(".",",")}</h1>
-            </BalanceSection>
-
-            <ButtonSection>
-                <PaymentButton/>
-            </ButtonSection> 
+            {
+                (productsCart) 
+                ? 
+                (productsCart.length === 0) ? "" :
+                <BalanceSection>
+                    <h1>R$ {(balance / 100).toFixed(2).replace(".",",")}</h1>
+                </BalanceSection>
+                    :
+                ""             
+            } 
+            {
+                (productsCart) 
+                ? 
+                (productsCart.length === 0) ? "" :
+                <ButtonSection>
+                    <PaymentButton/>
+                </ButtonSection> 
+                    :
+                ""             
+            } 
+            
         </>
     )
 }
@@ -46,7 +63,7 @@ const H1 = styled.h1`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 90px;
 `
 
 const Nav = styled.nav`
@@ -62,6 +79,7 @@ const ProductsSection = styled.section`
     background-image: url("https://lovebeers.com.br/wp-content/uploads/2017/05/fundo-madeira.jpg");
     flex-wrap: wrap;
     margin-top: 30px;
+    margin-bottom: 20px;
     border-radius: 5px;
     border: 5px solid #322938;
     max-height: 500px;
