@@ -62,7 +62,9 @@ const Nav = styled.nav`
     display: flex;
     flex-direction: column;
     cursor:pointer;
-    box-shadow: 0px 0px 10px black;
+    box-shadow: 0px 2px 10px black;
+    margin: 10px;
+    border-radius: 5px;
 `
 
 const WineDiv = styled.div`
@@ -111,7 +113,7 @@ const Button = styled.button`
     border: none;
     border-radius: 3px;
     width: 145px;
-    margin-left: 10px;
+    margin: 5px 10px 5px 10px;
     height: 40px;
     display: flex;
     justify-content: center;

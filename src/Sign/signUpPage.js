@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 
-import { Nav, SectionImg, DivInput, DivA, Button } from "./styled";
+import {All, Nav, Img, SectionImg, DivInput, DivA, Button } from "./styled";
 
 export default function HomePageCadastro() {
 
@@ -40,6 +40,7 @@ export default function HomePageCadastro() {
 
     return (
         <>
+        <All>
             <Nav>
                 <SectionImg>
                     <h1> WineDrop </h1>
@@ -61,6 +62,8 @@ export default function HomePageCadastro() {
                     </Link>
                 </DivA>
             </Nav>
+            <Img src={"https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/06/02/vinho-0-1iemoc5o9yxis.jpg"}/>
+            </All>
         </>
     )
 };

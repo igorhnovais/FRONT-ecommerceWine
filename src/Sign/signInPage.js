@@ -4,7 +4,7 @@ import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
 
 import {AuthContext} from "../Components/auth";
-import {All, Section, Nav, SectionImg, DivInput, DivA, Button} from "./styled";
+import {All, Img, Nav, SectionImg, DivInput, DivA, Button} from "./styled";
 
 export default function SignInPage(){
 
@@ -41,9 +41,7 @@ export default function SignInPage(){
     return (
         <>  
             <All>
-                <Section>
-                    <h1>oi</h1>
-                </Section>
+                <Img src={"https://content.paodeacucar.com/wp-content/uploads/2019/06/o-que-%C3%A9-vinho-de-mesa4.jpg"}/>
                 <Nav>
                     <SectionImg>
                         <h1> WineDrop </h1>

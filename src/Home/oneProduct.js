@@ -95,7 +95,7 @@ const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: rgb(251,245,142 );
+    background-color: rgb(225,223,208);
 `
 
 const DivProduct = styled.div`
@@ -104,6 +104,7 @@ const DivProduct = styled.div`
     border: 5px solid black;
     width: 60%;
     margin-top: 100px;
+    box-shadow: 0px 2px 50px black;
 `
 
 const DivImage = styled.div`

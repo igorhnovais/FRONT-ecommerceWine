@@ -170,7 +170,7 @@ const Section = styled.section`
     align-items: center;
     position: fixed;
     top: 0;
-    background-color:rgb(239,235,199);
+    background-color:rgb(225,223,208);
     box-shadow: 6px 2px 6px black;
     width: 100%;
     height: 70px;

@@ -5,11 +5,8 @@ export const All = styled.div`
     
 `
 
-export const Section = styled.section`
-    width: 100%;
-    background-image:url(https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/06/02/vinho-0-1iemoc5o9yxis.jpg);
-    background-repeat: no-repeat;
-    background-size: 800px ;
+export const Img = styled.img`
+    width: 50%;
 `
 
 export const Nav = styled.nav`
@@ -27,9 +24,9 @@ export const SectionImg = styled.section`
     display: flex;
     justify-content: center;
     & h1{
-        color: white;
+        color: rgb(73,8,8);
         font-size: 60px;
-        font-family: 'Saira Stencil One';
+        text-shadow: 1px 1px 2px #000000;
     }
 `
 
@@ -58,7 +55,7 @@ export const DivInput = styled.div`
 `
 
 export const Button = styled.button`
-    background-color: #322938;
+    background-color: rgb(73,8,8);;
     color: white;
     font-size: 20px;
     border: none;
@@ -88,7 +85,7 @@ export const DivA = styled.div`
     margin-top: 25px;
     
     & a{
-        color: white;
+        color: rgb(73,8,8);
         font-size: 20px;
         font-weight: 500;
     }

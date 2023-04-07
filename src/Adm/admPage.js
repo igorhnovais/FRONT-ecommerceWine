@@ -126,7 +126,7 @@ const Section = styled.section`
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    border: 5px solid white;
+    border: 5px solid black;
     background-color: rgb(115,113,100);
 `
 
@@ -135,7 +135,7 @@ const AddDiv = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 5px solid white;
+    border-right: 5px solid black;
     & h2{
         color: white;
         font-size: 35px;

@@ -34,7 +34,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	//background-color: #31684A;
-	background-color: rgb(239,235,199);
+	background-color: rgb(225,223,208);
 	flex-shrink: 0;
 	font-family: 'Alkatra', cursive;
 	*{
