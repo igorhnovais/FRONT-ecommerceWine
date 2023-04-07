@@ -36,6 +36,7 @@ body {
 	//background-color: #31684A;
 	background-color: rgb(239,235,199);
 	flex-shrink: 0;
+	font-family: 'Alkatra', cursive;
 	*{
 		box-sizing: border-box;
 	}

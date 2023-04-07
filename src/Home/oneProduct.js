@@ -95,19 +95,15 @@ const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-image: url(https://static.vecteezy.com/ti/vetor-gratis/p3/3226074-madeira-textura-fundo-vetor.jpg) ;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin-top: 70px;
+    background-color: rgb(251,245,142 );
 `
 
 const DivProduct = styled.div`
     display: flex;
     background-color: white;
-    border: 5px solid #322938;
+    border: 5px solid black;
     width: 60%;
+    margin-top: 100px;
 `
 
 const DivImage = styled.div`
@@ -124,7 +120,7 @@ const DivInfo = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left: 5px solid #322938;
+    border-left: 5px solid black;
     padding: 30px;
 `
 
@@ -150,6 +146,7 @@ const SectionName = styled.section`
         font-size: 20px;
         margin-top: 10px;
         font-weight: 400;
+        color: black;
     }
 `
 

@@ -119,6 +119,7 @@ const H1 = styled.h1`
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    text-shadow: 1px 1px 2px #000000;
 `
 
 const Section = styled.section`
@@ -126,7 +127,7 @@ const Section = styled.section`
     justify-content: center;
     margin-top: 20px;
     border: 5px solid white;
-    background-color: rgb(139,104,55);
+    background-color: rgb(115,113,100);
 `
 
 const AddDiv = styled.form`

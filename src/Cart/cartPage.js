@@ -33,26 +33,13 @@ export default function CartPage(){
                 </ProductsSection> 
             </Nav>
             {
-                (productsCart) 
-                ? 
-                (productsCart.length === 0) ? "" :
+                (productsCart?.length !== 0) ? 
                 <BalanceSection>
-                    <h1>R$ {(balance / 100).toFixed(2).replace(".",",")}</h1>
-                </BalanceSection>
-                    :
-                ""             
-            } 
-            {
-                (productsCart) 
-                ? 
-                (productsCart.length === 0) ? "" :
-                <ButtonSection>
                     <PaymentButton/>
-                </ButtonSection> 
-                    :
-                ""             
-            } 
-            
+                    <h1>R$ {(balance / 100).toFixed(2).replace(".",",")}</h1>
+                </BalanceSection> :
+                ''
+            }
         </>
     )
 }
@@ -64,6 +51,7 @@ const H1 = styled.h1`
     justify-content: center;
     align-items: center;
     margin-top: 90px;
+    text-shadow: 1px 1px 2px #000000;
 `
 
 const Nav = styled.nav`
@@ -85,14 +73,17 @@ const ProductsSection = styled.section`
     max-height: 500px;
     width: 80%;
     overflow-y: auto;
-    box-shadow: 0px 0px 10px white;
+    box-shadow: 0px 0px 10px black;
+    overflow-x: hidden;
+    overflow-y: hidden;
 `
 
 const BalanceSection = styled.section`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    margin-right: 130px;
+    padding: 1px 100px 1px 100px;
+    margin-bottom: 60px;
     & h1{
         color: white;
         font-size: 40px;
@@ -100,12 +91,6 @@ const BalanceSection = styled.section`
         background-color: #322938;
         padding-left: 10px;
         padding-right: 10px;
-        box-shadow: 0px 6px 8px white;
+        box-shadow: 0px 6px 8px black;
     }
-`
-
-const ButtonSection = styled.section`
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
 `

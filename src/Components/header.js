@@ -186,8 +186,8 @@ const TitleDiv = styled.div`
     font-size: 35px;
     color: #322938;
     & h1{
-        text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
-             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+        color: rgb(73,8,8);
+        text-shadow: 1px 1px 2px #000000;
     }
 `
 
@@ -201,6 +201,8 @@ const InputDiv = styled.div`
     flex-direction: column;
    & input{
     width: 250px;
+    border: 3px solid rgb(73,8,8);
+    border-radius: 2px;
    }
 `
 
@@ -213,7 +215,7 @@ const SearchDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: space-between;
-    border: 5px solid #322938;
+    border: 5px solid rgb(73,8,8);
     border-radius: 5px;
 `
 
@@ -222,13 +224,13 @@ const MenuDiv = styled.div`
     justify-content: flex-end;
     width: 33%;
     & svg {
-        font-size: 45px;
-        color: white;
-        border: 5px solid #322938;
+        font-size: 30px;
+        color: rgb(73,8,8);
+        //border: 5px solid rgb(73,8,8);
         box-shadow: 0 0 6px white;
         border-radius: 10px;
         cursor: pointer;
-        margin-left: 7px;   
+        margin-left: 10px;   
         border-radius: 5px;
         cursor: pointer;
         text-decoration: none;
@@ -251,7 +253,10 @@ const ListSection = styled.section`
     display: ${props => props.showMenu};
     flex-direction: column;
     border-radius: 0 0 10px 10px;
+    transition: transform 1s ease-in-out;
+    animation: 1s ease-in-out forwards;
 `
+
 
 const Div = styled.div`
     width: 200px;

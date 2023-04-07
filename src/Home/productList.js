@@ -62,6 +62,7 @@ const Nav = styled.nav`
     display: flex;
     flex-direction: column;
     cursor:pointer;
+    box-shadow: 0px 0px 10px black;
 `
 
 const WineDiv = styled.div`
@@ -104,7 +105,7 @@ const H6 = styled.h6`
 `
 
 const Button = styled.button`
-    background-color: #322938;
+    background-color: rgb(161,35,18);
     color: white;
     font-size: 16px;
     border: none;

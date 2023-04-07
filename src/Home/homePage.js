@@ -67,7 +67,7 @@ const ProductsSection = styled.section`
 `
 
 const Footer = styled.footer`
-    background-color: #322938;
+    background-color: rgb(73,8,8);
     display: flex;
     justify-content: center;
     padding: 20px;
