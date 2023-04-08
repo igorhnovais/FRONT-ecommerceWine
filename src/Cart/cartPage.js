@@ -8,7 +8,7 @@ import CartList from "./cartList.js";
 import useGetBalance from "../Hooks/Api/useGetBalance";
 import PaymentButton from "./paymentButtonStripe";
 import CartEmpty from "./cartEmpty";
-import Header from "../Components/header";
+import Header from "../Header/header";
 
 export default function CartPage(){
     const token = useToken();

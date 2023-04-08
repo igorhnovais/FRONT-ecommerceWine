@@ -9,7 +9,7 @@ import ProductsList from "./productList";
 import Loading from "../Components/loading";
 // import useToken from "../Hooks/useToken";
 
-import Header from "../Components/header";
+import Header from "../Header/header";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -37,10 +37,9 @@ export default function HomePage(){
                     <Loading/>}               
                 </ProductsSection>    
             </Nav>
-
-            <Footer>                  
+            {/* <Footer>                  
                 <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>          
-            </Footer>
+            </Footer> */}
 
         </>
     )
@@ -66,30 +65,30 @@ const ProductsSection = styled.section`
     box-shadow: 0px 0px 10px white;
 `
 
-const Footer = styled.footer`
-    background-color: rgb(73,8,8);
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    position: fixed;
-    bottom:0;
-    width: 100%;
-    height: 80px;
-    & ion-icon{
-        font-size: 45px;
-        color: white;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-    & svg {
-        font-size: 45px;
-        color: white;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-    & h3{
-        font-family: 'Saira Stencil One';
-        font-size: 40px;
-        color: white;
-    }
-`
+// const Footer = styled.footer`
+//     background-color: rgb(73,8,8);
+//     display: flex;
+//     justify-content: center;
+//     //padding: 20px;
+//     position: fixed;
+//     bottom:0;
+//     width: 100%;
+//     height: 50px;
+//     & ion-icon{
+//         font-size: 45px;
+//         color: white;
+//         border-radius: 10px;
+//         cursor: pointer;
+//     }
+//     & svg {
+//         font-size: 45px;
+//         color: white;
+//         border-radius: 10px;
+//         cursor: pointer;
+//     }
+//     & h3{
+//         font-family: 'Saira Stencil One';
+//         font-size: 40px;
+//         color: white;
+//     }
+//`

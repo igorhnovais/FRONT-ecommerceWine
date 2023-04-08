@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import useOneProduct from "../Hooks/Api/useOneProduct";
 import Loading from "../Components/loading";
 import useAddProductCart from "../Hooks/Api/useAddProductCart";
-import Header from "../Components/header"
+import Header from "../Header/header";
 
 export default function OneProduct(){
 
