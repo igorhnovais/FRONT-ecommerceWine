@@ -8,7 +8,7 @@ import useProducts from "../Hooks/Api/useProducts";
 import AdmProductsList from "./admProductsList";
 import Loading from "../Components/loading"
 import { useState } from "react";
-import { useEffect } from "react";
+import vazaFia from "./vaza-fia-gelly.gif"
 
 export default function AdmPage(){
     const [name, setName] = useState("");
@@ -18,7 +18,6 @@ export default function AdmPage(){
     const [alcohol, setAlcohol] = useState("");
     const [value, setValue] = useState("");
     const [type_product, setType_product] = useState("");
-    const [reload, setReload] = useState([]);
 
     const token = useToken();
     const {adm} = useGetAdm(token);
@@ -27,8 +26,10 @@ export default function AdmPage(){
     if(adm === false){
         return (
         <>
-            <H1>Vaza fia!!</H1>  
-            <img></img>     
+            <Div>
+                <H1>Vaza fia!!</H1>  
+                <img src={vazaFia}/> 
+            </Div>    
         </>)
     }
 
@@ -112,6 +113,18 @@ export default function AdmPage(){
         </>
     )
 }
+
+
+const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & img{
+        width: 280px;
+        margin-top: 50px;
+    }
+`
 
 const H1 = styled.h1`
     color: white;
