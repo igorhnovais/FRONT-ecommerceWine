@@ -68,6 +68,7 @@ const Nav = styled.nav`
 `
 
 const WineDiv = styled.div`
+    //background: url(https://img.freepik.com/fotos-gratis/piso-de-madeira-marrom_53876-90802.jpg?w=360);
     background-color: white;
     display: flex;
     flex-direction: column;
