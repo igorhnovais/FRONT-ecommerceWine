@@ -1,12 +1,16 @@
 services:
   react:
     container_name: react
-    build: ./front-end
+    build: 
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - react-volume:/var/www/html
+    networks:
+      - ecommerce_wine
 
   nginx_app:
-    container_name: nginx_app
+    container_name: nginx_app_front
     build: ./nginx
     ports:
       - 8080:80
@@ -14,6 +18,13 @@ services:
       - react-volume:/var/www/html
     depends_on:
       - react
+    networks:
+      - ecommerce_wine
+
+networks:
+  ecommerce_wine:
+    driver: bridge
+   
 
 volumes:
   react-volume:
