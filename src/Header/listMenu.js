@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Swal from 'sweetalert2';
-
 import useToken from "../Hooks/useToken";
 import useProducts from "../Hooks/Api/useProducts";
 import useGetWines from "../Hooks/Api/useGetWines";
@@ -13,6 +12,7 @@ import { FaWineGlassAlt } from "react-icons/fa";
 import {IoTabletPortrait} from "react-icons/io5";
 import { RiLogoutBoxRFill } from "react-icons/ri";
 import Adm from "../Components/adm";
+import HelpCustumer from "./helpCustumer";
 
 
 export default function ListMenu({setResponse, menu}){
@@ -81,6 +81,7 @@ export default function ListMenu({setResponse, menu}){
                     <h6>tabuas</h6>
                 </Div>
                 <Adm/>
+                <HelpCustumer/>
                 {(token)
                     ?
                     <Div onClick={DeleteSession}>
