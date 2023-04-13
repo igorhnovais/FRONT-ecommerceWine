@@ -60,12 +60,27 @@ const SearchDiv = styled.div`
     width: 300px;
     position: fixed;
     top: 70px;
-    left: calc(36%);
+    left: calc(45%);
     display: flex;
     flex-direction: column;
-    align-items: space-between;
+    align-items: center;
     border: 5px solid rgb(73,8,8);
     border-radius: 5px;
+    @media (max-width: 900px){
+        left: calc(35%); 
+    }
+    @media (max-width: 710px){
+        left: calc(32%); 
+    }
+    @media (max-width: 630px){
+        left: calc(30%); 
+    }
+    @media (max-width: 550px){
+        left: calc(25%); 
+    }
+    @media (max-width: 420px){
+        left: calc(14%); 
+    }
 `
 
 

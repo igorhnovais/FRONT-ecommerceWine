@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
-// import { useNavigate } from "react-router-dom";
-// import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 import useProducts from "../Hooks/Api/useProducts";
 import useName from "../Hooks/useName";
 import ProductsList from "./productList";
 import Loading from "../Components/loading";
-// import useToken from "../Hooks/useToken";
+import ListMenu from "../Header/listMenu";
+// import SearchHeader from "../Header/searchHeader";
+// import MenuHeader from "../Header/menuHeader";
+import useToken from "../Hooks/useToken";
+import { FaShoppingCart } from "react-icons/fa";
+import { TiThMenuOutline } from "react-icons/ti";
 
 import Header from "../Header/header";
 import { useState } from "react";
@@ -18,11 +23,43 @@ export default function HomePage(){
 
     const {products} = useProducts();
     const name = useName();
+    const token = useToken();
+    const navigate = useNavigate();
 
     const [response, setResponse] = useState([]);
+    const [menu, setMenu] = useState("none");
 
 
     useEffect(() => {setResponse(products)}, [products]);
+
+    function viewCart(){
+        if(!token){
+            Swal.fire({
+            title: 'Para entrar no carrinho precisa estar logado, quer entrar na sua conta?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Entrar',
+            denyButtonText: `Não entrar`,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                navigate("/sign-in"); 
+            } else if (result.isDenied) {
+                Swal.fire('ok =D')
+            }
+            })  
+        } else {
+            navigate("/cart");
+        }
+        
+    }
+
+    function viewMenu(){
+        if(menu === "none"){
+            setMenu("flex");
+        } else {
+            setMenu("none");
+        }
+    }
 
     return (
         <>
@@ -37,10 +74,12 @@ export default function HomePage(){
                     <Loading/>}               
                 </ProductsSection>    
             </Nav>
-            {/* <Footer>                  
-                <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>          
-            </Footer> */}
-
+            <ListMenu setResponse={setResponse} menu={menu}/>
+            <Footer> 
+                <div> <FaShoppingCart onClick={viewCart}/></div>               
+                <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>     
+                <div> <TiThMenuOutline onClick={viewMenu}/> </div>       
+            </Footer>
         </>
     )
 }
@@ -54,9 +93,6 @@ const ProductsSection = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    //background-image: url("https://i.pinimg.com/originals/90/43/a7/9043a730ef9d90e2b2e6c92265939457.jpg");
-    //background-image: url("https://lovebeers.com.br/wp-content/uploads/2017/05/fundo-madeira.jpg");
-    //background-image: url("https://img.freepik.com/fotos-premium/fundo-de-madeira-velho-grunge-texturizado-escuro_7182-370.jpg");
     flex-wrap: wrap;
     margin-top: 60px;
     margin-bottom: 100px;
@@ -65,30 +101,51 @@ const ProductsSection = styled.section`
     box-shadow: 0px 0px 10px white;
 `
 
-// const Footer = styled.footer`
-//     background-color: rgb(73,8,8);
-//     display: flex;
-//     justify-content: center;
-//     //padding: 20px;
-//     position: fixed;
-//     bottom:0;
-//     width: 100%;
-//     height: 50px;
-//     & ion-icon{
-//         font-size: 45px;
-//         color: white;
-//         border-radius: 10px;
-//         cursor: pointer;
-//     }
-//     & svg {
-//         font-size: 45px;
-//         color: white;
-//         border-radius: 10px;
-//         cursor: pointer;
-//     }
-//     & h3{
-//         font-family: 'Saira Stencil One';
-//         font-size: 40px;
-//         color: white;
-//     }
-//`
+const Footer = styled.footer`
+    background-color: rgb(73,8,8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    height: 60px;
+    & ion-icon{
+        font-size: 45px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    & svg {
+        font-size: 45px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    & h3{
+        font-family: 'Saira Stencil One';
+        font-size: 40px;
+        color: white;
+        //margin: 0 20px;
+    }
+    & div{
+        display: none;
+    }
+    @media (min-width: 746px) {
+        display: none;
+    }
+    @media (max-width: 630px) {
+        justify-content: space-between;
+        & div{
+            display: flex;
+        }
+        
+    }
+    @media (max-width: 450px) {
+        & h3{
+            font-size: 30px;
+        }
+        
+    }
+`

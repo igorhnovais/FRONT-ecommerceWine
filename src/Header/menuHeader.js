@@ -6,6 +6,8 @@ import Swal from 'sweetalert2';
 import { FaShoppingCart } from "react-icons/fa";
 import { TiThMenuOutline } from "react-icons/ti";
 
+import SearchInput from "./searchInput";
+
 export default function MenuHeader({setMenu, menu}){
 
     const navigate = useNavigate();
@@ -43,7 +45,7 @@ export default function MenuHeader({setMenu, menu}){
     return(
         <>
             <MenuDiv>                 
-                <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>          
+                <h3> {(name) ? `Olá, ${name}` : "Bem-vinde"}</h3>        
                 <FaShoppingCart onClick={viewCart}/>
                 <TiThMenuOutline onClick={viewMenu}/>
             </MenuDiv>
@@ -78,4 +80,45 @@ const MenuDiv = styled.div`
             transform: translate(2px, 2px);
         }
     }
+    @media (max-width: 745px){
+        & h3{
+            display: none;
+        }
+    }
+    @media (max-width: 630px){   
+        display: none;
+    }
+   
 `
+
+// const MenuDivRes = styled.div`
+//     display: flex;
+//     justify-content: flex-end;
+//     width: 33%;
+//     & h3{
+//         display: flex;
+//         align-items: center;
+//     }
+//     & svg {
+//         font-size: 30px;
+//         color: rgb(73,8,8);
+//         //border: 5px solid rgb(73,8,8);
+//         box-shadow: 0 0 6px white;
+//         border-radius: 10px;
+//         cursor: pointer;
+//         margin-left: 10px;   
+//         border-radius: 5px;
+//         cursor: pointer;
+//         text-decoration: none;
+//         user-select: none;
+//         -webkit-user-select: none;
+//         touch-action: manipulation;
+//         :active {
+//             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.35);
+//             transform: translate(2px, 2px);
+//         }
+//     }
+//     /* @media (min-width: 745px){
+//         display: none;
+//     } */
+// `

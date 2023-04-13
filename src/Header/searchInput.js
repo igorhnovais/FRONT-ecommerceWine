@@ -44,4 +44,22 @@ const InputDiv = styled.div`
     border: 3px solid rgb(73,8,8);
     border-radius: 2px;
    }
+   @media (max-width: 745px){
+        & input{
+            display: flex;
+            justify-content: center;
+            margin-left: 50px;
+        }
+    }
+   @media (max-width: 630px){  
+        & input{
+            margin-right: 100px;
+        }
+    }
+   @media (max-width: 600px){  
+        & input{
+            margin-right: 50px;
+            width: 140px;
+        }
+    }
 `

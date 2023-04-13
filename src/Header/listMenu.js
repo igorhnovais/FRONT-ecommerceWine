@@ -11,6 +11,7 @@ import {FaWineBottle} from "react-icons/fa";
 import { FaWineGlassAlt } from "react-icons/fa";
 import {IoTabletPortrait} from "react-icons/io5";
 import { RiLogoutBoxRFill } from "react-icons/ri";
+import {FaSearch} from "react-icons/fa";
 import Adm from "../Components/adm";
 import HelpCustumer from "./helpCustumer";
 
@@ -64,6 +65,10 @@ export default function ListMenu({setResponse, menu}){
     return (
         <>
             <ListSection showMenu={menu}>
+                <DivRes onClick={() => viewProduct(1)}>
+                    <FaSearch/>
+                    <h6>Pesquisa</h6>
+                </DivRes>
                 <Div onClick={() => viewProduct(1)}>
                     <GiWineBottle/>
                     <h6>Todos os produtos</h6>
@@ -128,5 +133,30 @@ const Div = styled.div`
     & svg{
         color: red;
         margin-right: 5px;
+    }
+`
+
+const DivRes = styled.div`
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    padding: 5px;
+    display: flex;
+    cursor:pointer;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+    & h6{
+        color: white;
+        text-shadow: 0 0 6px white;
+        border-bottom: 2px solid #322938;
+    }
+    & svg{
+        color: red;
+        margin-right: 5px;
+    }
+    @media (min-width: 600px){
+        display: none;
     }
 `
