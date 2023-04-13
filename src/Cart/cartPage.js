@@ -52,6 +52,18 @@ const H1 = styled.h1`
     align-items: center;
     margin-top: 90px;
     text-shadow: 1px 1px 2px #000000;
+    @media (max-width:1000px){
+        font-size: 60px;
+        margin-top: 110px;
+    }
+    @media (max-width:750px){
+        font-size: 40px;
+        margin-top: 110px;
+    }
+    @media (max-width:520px){
+        font-size: 30px;
+        margin-top: 110px;
+    }
 `
 
 const Nav = styled.nav`
@@ -92,5 +104,11 @@ const BalanceSection = styled.section`
         padding-left: 10px;
         padding-right: 10px;
         box-shadow: 0px 6px 8px black;
+    }
+    @media (max-width:700px){
+        flex-direction: column-reverse;
+        & h1{
+            margin-bottom: 30px;
+        }
     }
 `

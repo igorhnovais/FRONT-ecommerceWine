@@ -95,34 +95,41 @@ const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: rgb(225,223,208);
+    //background-color: rgb(225,223,208);
+    
 `
 
 const DivProduct = styled.div`
     display: flex;
     background-color: white;
-    border: 5px solid black;
-    width: 60%;
+    //border: 5px solid black;
+    width: 90%;
     margin-top: 100px;
     box-shadow: 0px 2px 50px black;
+    
 `
 
 const DivImage = styled.div`
-    height: 400px;
+    //height: 400px;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 5px solid black;
 
 `
 
 const DivInfo = styled.div`
     height: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-left: 5px solid black;
+    border: 5px solid black;
     padding: 30px;
+    background-color: white;
 `
 
 const SectionImg = styled.section`
@@ -130,10 +137,15 @@ const SectionImg = styled.section`
     width: 250px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     border-radius: 5px;
     & img{
         width: 150px;
+    }
+    @media (max-width:410px){
+        & img{
+            width: 120px;
+        }
     }
 `
 
@@ -149,6 +161,11 @@ const SectionName = styled.section`
         font-weight: 400;
         color: black;
     }
+    @media (max-width:520px){
+        & P{
+            font-size: 15px;
+        }
+    }
 `
 
 const H1 = styled.h1`
@@ -159,6 +176,9 @@ const H1 = styled.h1`
     font-weight: bold;
     text-align: center;
     flex-wrap: wrap;
+    @media (max-width:520px){
+        font-size: 25px;
+    }
 `
 
 const SectionDescription = styled.section`
@@ -172,12 +192,18 @@ const SectionDescription = styled.section`
         color: #322938;
         font-weight: bold;
     }
+    @media (max-width:520px){
+        font-size: 15px;
+    }
 `
 
 const SectionValue = styled.section`
     margin-top: 20px;
     font-size: 50px;
     color: #322938;
+    @media (max-width:520px){
+        font-size: 25px;
+    }
 `
 
 const Button = styled.button`

@@ -66,6 +66,9 @@ const SearchDiv = styled.div`
     align-items: center;
     border: 5px solid rgb(73,8,8);
     border-radius: 5px;
+    @media (min-width: 900px){
+        left: calc(40%); 
+    }
     @media (max-width: 900px){
         left: calc(35%); 
     }

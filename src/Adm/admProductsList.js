@@ -52,7 +52,7 @@ const Div = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    width: 100%;
+    width: 90%;
     margin-bottom: 10px; 
     margin-left: 10px;
     margin-right: 10px;

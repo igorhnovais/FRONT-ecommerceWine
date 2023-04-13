@@ -163,6 +163,7 @@ const AddDiv = styled.form`
     & div{
         display: flex;
         flex-direction: column;
+        width: 90%;
     }
     & button{
         background-color: green;
