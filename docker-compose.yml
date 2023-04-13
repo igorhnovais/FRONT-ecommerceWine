@@ -5,10 +5,13 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - /var/www/html:/var/www/html
-    networks:
-      - ecommerce_wine
+      - react-volume:/var/www/html
+    # networks:
+    #   - ecommerce_wine
+    env_file:
+      - .env
 
+  
   # nginx_app:
   #   container_name: nginx_app_front
   #   build: ./nginx
@@ -21,7 +24,9 @@ services:
   #   networks:
   #     - ecommerce_wine
 
-networks:
-  ecommerce_wine:
-    driver: bridge
+# networks:
+#   ecommerce_wine:
+#     driver: bridge
    
+volumes:
+  react-volume:
