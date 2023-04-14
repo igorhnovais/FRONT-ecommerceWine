@@ -64,6 +64,7 @@ const SearchDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border: 5px solid rgb(73,8,8);
     border-radius: 5px;
     @media (min-width: 900px){
