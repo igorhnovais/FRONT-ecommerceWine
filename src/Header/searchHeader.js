@@ -19,8 +19,6 @@ export default function SearchHeader({item}){
 
 const Div = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 5px;
     margin-top: 5px;
     & img{
