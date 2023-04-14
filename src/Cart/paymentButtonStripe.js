@@ -2,13 +2,39 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import useToken from '../Hooks/useToken';
+import Swal from 'sweetalert2';
 
 export default function PaymentStripeButton() {
   const token = useToken();
   
   function goToPaymentPage(e) {
+
     e.preventDefault();
-    axios
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+      title: 'Você tem certeza?',
+      text: "Essa loja não existe, foi feito para fins didáticos!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sim, ver funcionando!',
+      cancelButtonText: 'Não, sair!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Ok!',
+          'Não compre nada!.',
+          'success'
+        )
+        axios
       .post(`${process.env.REACT_APP_API_BASE_URL}/create-checkout-session`, null, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -20,6 +46,18 @@ export default function PaymentStripeButton() {
       .catch((error) => {
         console.log(error);
       });
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'Seu dinheiro está a salvo :)',
+          'error'
+        )
+      }
+    })
+    
   }
 
   return (
