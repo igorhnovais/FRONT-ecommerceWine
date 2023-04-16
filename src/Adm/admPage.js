@@ -133,6 +133,9 @@ const H1 = styled.h1`
     justify-content: center;
     margin-top: 20px;
     text-shadow: 1px 1px 2px #000000;
+    @media(max-width: 620px){
+        font-size: 40px;
+    }
 `
 
 const Section = styled.section`
@@ -141,6 +144,12 @@ const Section = styled.section`
     margin-top: 20px;
     border: 5px solid black;
     background-color: rgb(115,113,100);
+    @media(max-width: 620px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 5px solid black;
+    }
 `
 
 const AddDiv = styled.form`
@@ -163,7 +172,6 @@ const AddDiv = styled.form`
     & div{
         display: flex;
         flex-direction: column;
-        width: 90%;
     }
     & button{
         background-color: green;
@@ -172,6 +180,7 @@ const AddDiv = styled.form`
         border: none;
         border-radius: 3px;
         margin-top: 10px;
+        margin-bottom: 20px;
         height: 45px;
         display: flex;
         justify-content: center;
@@ -188,6 +197,10 @@ const AddDiv = styled.form`
         transform: translate(2px, 2px);
         }
     }
+    @media(max-width: 620px){
+        border-bottom: 5px solid black;
+        width: 100%;
+    }
 `
 
 const RemoveDiv = styled.div`
@@ -200,6 +213,9 @@ const RemoveDiv = styled.div`
         font-size: 35px;
         margin: 10px 10px;
         text-shadow: 2px 2px red;
+    }
+    @media(max-width: 620px){
+        width: 100%;
     }
 `
 

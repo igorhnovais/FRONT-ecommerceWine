@@ -95,8 +95,6 @@ const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     padding: 20px;
-    //background-color: rgb(225,223,208);
-    
 `
 
 const DivProduct = styled.div`
@@ -106,7 +104,9 @@ const DivProduct = styled.div`
     width: 90%;
     margin-top: 100px;
     box-shadow: 0px 2px 50px black;
-    
+    @media (max-width:580px){
+        flex-direction: column;
+    }
 `
 
 const DivImage = styled.div`
@@ -116,7 +116,9 @@ const DivImage = styled.div`
     justify-content: center;
     align-items: center;
     border: 5px solid black;
-
+    @media (max-width:580px){
+        width: 100%;
+    }
 `
 
 const DivInfo = styled.div`
@@ -130,6 +132,9 @@ const DivInfo = styled.div`
     border: 5px solid black;
     padding: 30px;
     background-color: white;
+    @media (max-width:580px){
+        width: 100%;
+    }
 `
 
 const SectionImg = styled.section`

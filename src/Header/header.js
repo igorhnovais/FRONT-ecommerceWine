@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import SearchHeader from "./searchHeader";
 import SearchInput from "./searchInput";
@@ -15,7 +16,9 @@ export default function Header({setResponse}){
         <>
             <Section>
                 <TitleDiv>
-                    <h1>WineDrop</h1>
+                    <Link to={"/products"}>
+                        <h1>WineDrop</h1>
+                    </Link>
                 </TitleDiv>
                 <SearchInput setQuest={setQuest} text={text}/>
                 <MenuHeader setMenu={setMenu} menu={menu}/>
@@ -53,6 +56,9 @@ const TitleDiv = styled.div`
         color: rgb(73,8,8);
         text-shadow: 1px 1px 2px #000000;
     }
+    & a{
+        text-decoration: none;
+    }
 `
 
 const SearchDiv = styled.div`
@@ -67,6 +73,9 @@ const SearchDiv = styled.div`
     justify-content: center;
     border: 5px solid rgb(73,8,8);
     border-radius: 5px;
+    /* & a{
+        text-decoration: none;
+    } */
     @media (min-width: 900px){
         left: calc(40%); 
     }

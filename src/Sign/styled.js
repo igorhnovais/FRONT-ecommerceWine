@@ -7,6 +7,9 @@ export const All = styled.div`
 
 export const Img = styled.img`
     width: 50%;
+    @media (max-width:750px){
+        display: none;
+    }
 `
 
 export const Nav = styled.nav`
