@@ -23,6 +23,8 @@
 ### Idealização do projeto
 - Esse projeto foi pensado para ser um ecommerce de vinho e seus derivados, onde possui cadastro e login, sistema de produtos, filtros de produtos, carrinho e tela de administrador, que usada com um email especial, o administrador poderá deletar e cadastrar um novo produto.
 
+### link do Back-end desse projeto
+- https://github.com/igorhnovais/API-EcommerceWine
 <a name="usando"></a>
 
 ## 🏁 Usando
