@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+# Ecommerce WineDrop
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<details open="open">
+  <summary><h2 style="display: inline-block">📜 Sumário</h2></summary>
 
-## Available Scripts
+- [Sobre o projeto](#sobre-o-projeto)
+- [Usando](#usando)
+- [Rotas](#rotas)
 
-In the project directory, you can run:
 
-### `npm start`
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<a name="sobre-o-projeto"></a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📋 Sobre o projeto
+### tecnologias e ferramentas
 
-### `npm test`
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![REACT](https://img.shields.io/badge/-React-blue?style=for-the-badge&color=5ed2f2&logo=react&logoColor=000000)
+![Javascript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&loo=javascript&logoColor=%23F7DF1E&logo=javascript&logoColor=%23F7DF1E)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=flat&logo=styled-components&logoColor=white)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Idealização do projeto
+- Esse projeto foi pensado para ser um ecommerce de vinho e seus derivados, onde possui cadastro e login, sistema de produtos, filtros de produtos, carrinho e tela de administrador, que usada com um email especial, o administrador poderá deletar e cadastrar um novo produto.
 
-### `npm run build`
+<a name="usando"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🏁 Usando
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone o repositorio
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+$ git clone https://github.com/igorhnovais/FRONT-ecommerceWine.git
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Instale as dependências
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+$ npm i
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+E por fim, rode o comando para iniciar a aplicação
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+$ npm start
+```
 
-## Learn More
+<a name="contribuindo"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🏁 Rotas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Rota inicial:
 
-### Code Splitting
+    Route: ```"/"```
+    
+    Desrição: essa rota redireciona para a rota de produtos da home.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. Rota para cadastrar um novo usuario:
+    
+    Route ```"/sign-up"``` 
 
-### Analyzing the Bundle Size
+    Desrição: nela você consegue se cadastrar para poder usar o app. 
+    
+    Entrada:
+    ```bash
+        {
+            "name": "igor",
+            "email": "igor@driven.com.br",
+            "password": "driven",
+            "confirmPassword": "driven"  
+        }
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Rota para fazer login no app:
+    
+    Route: ```"/sign-in"``` 
 
-### Making a Progressive Web App
+    Desrição: nela você consegue por seu email e senha já cadastrados anteriormente e assim terá acesso ao app.
+    
+    Entrada:
+    ```bash
+        {
+            "email": "igor@driven.com.br",
+            "password": "driven"  
+        }
+    ```
+4. Pegar todos os produtos do ecommerce:
+    
+    Route: ```"/products"``` 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    Desrição: nessa rota vai aparecer todos os produtos disponiveis do ecommerce
 
-### Advanced Configuration
+5. Pagina do produto: 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    Route get: ```"/product/:productId"``` 
+    
+    Desrição: nessa rota aparece o produto sozinho, onde está todas as suas descrições e um botão pra adicionar no carrinho caso o usuario ja esteja logado. 
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+6. Carrinho:
 
-### `npm run build` fails to minify
+    Route post: ```"/cart"```
+    
+    Desrição: Essa é a rota onde vc vai encontrar o seu carrinho, se não tiver nenhum produto, ele te direciona pra home.
+    Caso ja tenha produtos inseridos, ele vai te listar esses produtos e o valor do carrinho em baixo, junto com o botão de compra, onde vc será redirecionado para a Api externa da stripe
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    
+
+
+7. Rota do administrador:
+
+    Route put: ```"/adm"```
+    
+    Desrição: Nessa rota apenas o administrador tem acesso, e nela ele poderá adicionar um novo produto ou remover um produto ja existente.
+
+    Entrada para novo produto: 
+    ```bash
+    {
+        "image": "https://www.wine.com.br/cdn-cgi/image/q=99,f=png,h=176/assets-images/produtos/20884-01.png",
+        "name":"Davideira",
+        "description": "O nome Davideira faz alusão ao fruto que sai da videira, a uva. Em Portugal, as uvas crescem há mais de 4 mil anos. É um cultivo que faz parte da história do país. Esse vinho é uma homenagem à uva, elaborado com castas típicas do país.",
+        "type": "Portugal Tinto Meio Seco 750 ml",
+        "alcohol": "13.00% ABV",
+        "value": 6490,
+        "type_product": "wine"
+    }
+    ```
+
+1. Rota inexistente:
+
+    Route: ```"*"```
+    
+    Desrição: nessa rota, caso o usuario escreve uma rota qualquer na url inexistente, é redirecionado para a rota "/404".
+
+8. Rota 404 (not found):
+
+    Route: ```"/404"```
+    
+    Desrição: Caso seja redirecionado pra essa rota, mostra pro usuario que não existe e pede pro usuario voltar pra home.
+
+
